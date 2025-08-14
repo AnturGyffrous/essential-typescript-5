@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TodoItem = void 0;
-class TodoItem {
+export class TodoItem {
     id;
     task;
     complete;
@@ -16,4 +13,3 @@ class TodoItem {
             ? "\t(complete)" : ""}`);
     }
 }
-exports.TodoItem = TodoItem;
