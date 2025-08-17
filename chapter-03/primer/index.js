@@ -20,3 +20,8 @@ console.log(`Type: ${typeof myVariable}`);
 let firstCity;
 let secondCity = firstCity || "London";
 console.log(`City: ${secondCity}`);
+
+let taxRate; // no tax rate has been defined
+console.log(`Tax rate: ${taxRate || 10}%`);
+taxRate = 0; // zero-rated for tax
+console.log(`Tax rate: ${taxRate || 10}%`);
