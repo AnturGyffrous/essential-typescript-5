@@ -11,3 +11,6 @@ if (hatPrice == bootsPrice) {
 
 let totalPrice = hatPrice + bootsPrice;
 console.log(`Total Price: ${totalPrice}`);
+
+let myVariable = "Owain";
+console.log(`Type: ${typeof myVariable}`);
