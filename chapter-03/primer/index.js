@@ -9,7 +9,7 @@ if (hatPrice === bootsPrice) {
     console.log("Prices are different");
 }
 
-function sumPrices(first, second, third) {
+function sumPrices(first, second, third = 0) {
     return first + second + third;
 }
 
