@@ -14,7 +14,13 @@ function sumPrices(first, second, third) {
 }
 
 let totalPrice = sumPrices(hatPrice, bootsPrice);
-console.log(`Total Price: ${totalPrice}`);
+console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
+
+totalPrice = sumPrices(100, 200, 300);
+console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
+
+totalPrice = sumPrices(100, 200);
+console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
 
 let myVariable = "Owain";
 console.log(`Type: ${typeof myVariable}`);
