@@ -9,7 +9,11 @@ if (hatPrice === bootsPrice) {
     console.log("Prices are different");
 }
 
-let totalPrice = Number(hatPrice) + Number(bootsPrice);
+function sumPrices(first, second, third) {
+    return first + second + third;
+}
+
+let totalPrice = sumPrices(hatPrice, bootsPrice);
 console.log(`Total Price: ${totalPrice}`);
 
 let myVariable = "Owain";
