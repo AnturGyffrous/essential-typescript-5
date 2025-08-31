@@ -12,7 +12,7 @@ let hat = {
         return this._price;
     },
 
-    writeDetails: function () {
+    writeDetails() {
         console.log(`${this.name}: ${this.price}, ${this.priceIncTax}`);
     }
 };
