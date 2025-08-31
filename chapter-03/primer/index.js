@@ -17,6 +17,10 @@ gloves.name = gloves.productName;
 delete gloves.productName;
 gloves.price = 20;
 
+let propertyCheck = hat.price ?? 0;
+let objectAndPropertyCheck = (hat ?? {}).price ?? 0;
+console.log(`Checks: ${propertyCheck}, ${objectAndPropertyCheck}`);
+
 let sumPrices = (...numbers) => numbers.reduce((total, val) =>
     total + (Number.isNaN(Number(val)) ? 0 : Number(val)));
 
