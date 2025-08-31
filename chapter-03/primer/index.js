@@ -14,11 +14,10 @@ let names = ["Hat", "Boots", "Gloves"];
 let [, , three] = names;
 console.log(`Three: ${three}`);
 
-let prices = [];
+let prices = [100, 120, 50.25];
 
-prices.push(hatPrice);
-prices.push(bootsPrice);
-prices.push(50.25);
+let [, ...highest] = prices.sort((a, b) => a - b);
+highest.forEach(price => console.log(`High price: ${price}`));
 
 console.log(`First Item: ${names[0]}: ${prices[0]}`);
 
