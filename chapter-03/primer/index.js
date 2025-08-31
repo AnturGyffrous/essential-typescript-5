@@ -8,6 +8,9 @@ let boots = {
     price: "100"
 };
 
+let otherHat = { ...hat };
+console.log(`Spread: ${otherHat.name}, ${otherHat.price}`);
+
 let gloves = {
     productName: "Gloves",
     price: "40"
