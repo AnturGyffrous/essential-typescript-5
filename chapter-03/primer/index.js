@@ -39,3 +39,4 @@ function writeMessage(message) {
 
 greeting = "Hello";
 writeMessage("It is sunny today");
+writeMessage.call(globalThis, "It is sunny today");
