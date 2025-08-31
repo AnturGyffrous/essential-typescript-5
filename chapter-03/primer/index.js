@@ -12,8 +12,9 @@ let hat = {
         return this._price;
     },
 
-    writeDetails: () =>
-        console.log(`${this.name}: ${this.price}, ${this.priceIncTax}`)
+    writeDetails() {
+        console.log(`${this.name}: ${this.price}, ${this.priceIncTax}`);
+    }
 };
 
 let boots = {
@@ -25,6 +26,7 @@ let boots = {
     }
 };
 
+hat.writeDetails = hat.writeDetails.bind(hat);
 hat.writeDetails();
 hat.price = 120;
 hat.writeDetails();
