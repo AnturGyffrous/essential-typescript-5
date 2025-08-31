@@ -9,11 +9,8 @@ if (hatPrice === bootsPrice) {
     console.log("Prices are different");
 }
 
-function sumPrices(...numbers) {
-    return numbers.reduce((total, val) =>
-        total + (Number.isNaN(Number(val)) ? 0 : Number(val))
-    );
-}
+let sumPrices = (...numbers) => numbers.reduce((total, val) =>
+    total + (Number.isNaN(Number(val)) ? 0 : Number(val)));
 
 let totalPrice = sumPrices(hatPrice, bootsPrice);
 console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
