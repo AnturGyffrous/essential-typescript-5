@@ -24,6 +24,10 @@ let sumPrices = (...numbers) => numbers.reduce((total, val) =>
 let totalPrice = sumPrices(...prices);
 console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
 
+let combinedArray = [...names, ...prices];
+combinedArray.forEach(element =>
+    console.log(`Combined Array Element: ${element}`));
+
 totalPrice = sumPrices(100, 200, 300);
 console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
 
