@@ -41,6 +41,8 @@ let myObject = {
     }
 }
 
+myObject.writeMessage = myObject.writeMessage.bind(myObject);
+
 greeting = "Hello";
 myObject.writeMessage("It is sunny today");
 
