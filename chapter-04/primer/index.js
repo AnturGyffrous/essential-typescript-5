@@ -22,5 +22,9 @@ console.log(`Boots Prototype: ${bootsPrototype}`);
 
 console.log(`Common prototype: ${hatPrototype === bootsPrototype}`);
 
-console.log(`Hat: ${hat.price}, ${hat.getPriceIncTax()}`);
-console.log(`toString: ${hat.toString()}`);
+hatPrototype.toString = function () {
+    return `toString: Name: ${this.name}, Price: ${this.price}`;
+}
+
+console.log(hat.toString());
+console.log(boots.toString());
