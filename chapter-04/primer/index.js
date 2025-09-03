@@ -7,3 +7,4 @@ let hat = {
 };
 
 console.log(`Hat: ${hat.price}, ${hat.getPriceIncTax()}`);
+console.log(`toString: ${hat.toString()}`);
