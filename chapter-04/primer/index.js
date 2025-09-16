@@ -39,3 +39,8 @@ console.log(`hat and TaxedProduct: ${hat instanceof TaxedProduct}`);
 console.log(`hat and Product: ${hat instanceof Product}`);
 console.log(`boots and TaxedProduct: ${boots instanceof TaxedProduct}`);
 console.log(`boots and Product: ${boots instanceof Product}`);
+
+Product.process = (...products) =>
+    products.forEach(p => console.log(p.toString()));
+
+Product.process(new Product("Hat", 100, 1.2), new Product("Boots", 100));
