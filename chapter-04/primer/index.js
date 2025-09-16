@@ -21,7 +21,11 @@ class TaxedProduct extends Product {
 
     toString() {
         let chainResult = super.toString();
-        return `${chainResult}, Tax: ${this.getPriceIncTax()}`;
+        return `${chainResult}, ${this.#getDetail()}`;
+    }
+
+    #getDetail() {
+        return `Tax: ${this.getPriceIncTax()}`;
     }
 
     static process(...products) {
