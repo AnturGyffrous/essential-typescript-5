@@ -41,6 +41,8 @@ console.log(`boots and TaxedProduct: ${boots instanceof TaxedProduct}`);
 console.log(`boots and Product: ${boots instanceof Product}`);
 
 Product.process = (...products) =>
-    products.forEach(p => console.log(p.toString()));
+    products.forEach(p => p instanceof TaxedProduct
+        ? console.log(p.toTaxString())
+        : console.log(p.toString()));
 
-Product.process(new Product("Hat", 100, 1.2), new Product("Boots", 100));
+Product.process(new TaxedProduct("Hat", 100, 1.2), new Product("Boots", 100));
