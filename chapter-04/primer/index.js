@@ -1,5 +1,6 @@
 class Product {
     constructor(name, price) {
+        this.id = Symbol();
         this.name = name;
         this.price = price;
     }
@@ -64,8 +65,24 @@ console.log(`Total price: ${winter.getTotalPrice()}`);
 
 [...winter].forEach(p => console.log(`Product: ${p}`));
 
-let data = new Map();
-data.set("hat", new Product("Hat", 100));
-data.set("boots", new Product("Boots", 100));
+class Supplier {
+    constructor(name, productIds) {
+        this.name = name;
+        this.productIds = productIds;
+    }
+}
 
-[...data.keys()].forEach(key => console.log(data.get(key).toString()));
+let acmeProducts = [new Product("Hat", 100), new Product("Boots", 100)];
+let zoomProducts = [new Product("Hat", 100), new Product("Boots", 100)];
+
+let products = new Map();
+
+[...acmeProducts, ...zoomProducts].forEach(p => products.set(p.id, p));
+
+let suppliers = new Map();
+
+suppliers.set("acme", new Supplier("Acme Co", acmeProducts.map(p => p.id)));
+suppliers.set("Zoom", new Supplier("Zoom Shoes", zoomProducts.map(p => p.id)));
+
+suppliers.get("acme").productIds.forEach(id =>
+    console.log(`Name: ${products.get(id).name}`));
