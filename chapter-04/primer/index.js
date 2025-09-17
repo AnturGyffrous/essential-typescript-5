@@ -64,10 +64,8 @@ console.log(`Total price: ${winter.getTotalPrice()}`);
 
 [...winter].forEach(p => console.log(`Product: ${p}`));
 
-let data = {
-    hat: new Product("Hat", 100)
-}
+let data = new Map();
+data.set("hat", new Product("Hat", 100));
+data.set("boots", new Product("Boots", 100));
 
-data.boots = new Product("Boots", 100);
-
-Object.keys(data).forEach(key => console.log(data[key].toString()));
+[...data.keys()].forEach(key => console.log(data.get(key).toString()));
