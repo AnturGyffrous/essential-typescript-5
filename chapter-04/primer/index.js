@@ -50,7 +50,7 @@ class GiftPack {
             .reduce((total, p) => total + p.price, 0);
     }
 
-    *getGenerator() {
+    *[Symbol.iterator]() {
         yield this.prod1;
         yield this.prod2;
         yield this.prod3;
@@ -62,4 +62,4 @@ let winter = new GiftPack("winter", new Product("Hat", 100),
 
 console.log(`Total price: ${winter.getTotalPrice()}`);
 
-[...winter.getGenerator()].forEach(p => console.log(`Product: ${p}`));
+[...winter].forEach(p => console.log(`Product: ${p}`));
