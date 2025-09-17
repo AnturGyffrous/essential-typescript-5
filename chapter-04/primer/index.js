@@ -63,3 +63,11 @@ let winter = new GiftPack("winter", new Product("Hat", 100),
 console.log(`Total price: ${winter.getTotalPrice()}`);
 
 [...winter].forEach(p => console.log(`Product: ${p}`));
+
+let data = {
+    hat: new Product("Hat", 100)
+}
+
+data.boots = new Product("Boots", 100);
+
+Object.keys(data).forEach(key => console.log(data[key].toString()));
