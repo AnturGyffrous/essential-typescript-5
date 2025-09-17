@@ -72,17 +72,15 @@ class Supplier {
     }
 }
 
-let acmeProducts = [new Product("Hat", 100), new Product("Boots", 100)];
-let zoomProducts = [new Product("Hat", 100), new Product("Boots", 100)];
+let product = new Product("Hat", 100);
 
-let products = new Map();
+let productArray = [];
+let productSet = new Set();
 
-[...acmeProducts, ...zoomProducts].forEach(p => products.set(p.id, p));
+for (let i = 0; i < 5; i++) {
+    productArray.push(product);
+    productSet.add(product);
+}
 
-let suppliers = new Map();
-
-suppliers.set("acme", new Supplier("Acme Co", acmeProducts.map(p => p.id)));
-suppliers.set("Zoom", new Supplier("Zoom Shoes", zoomProducts.map(p => p.id)));
-
-suppliers.get("acme").productIds.forEach(id =>
-    console.log(`Name: ${products.get(id).name}`));
+console.log(`Array length: ${productArray.length}`);
+console.log(`Set size: ${productSet.size}`);
