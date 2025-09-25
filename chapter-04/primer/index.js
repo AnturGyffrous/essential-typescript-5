@@ -1,3 +1,5 @@
+import calcTax from "./tax.js"
+
 class Product {
     constructor(name, price) {
         this.id = Symbol();
@@ -84,3 +86,6 @@ for (let i = 0; i < 5; i++) {
 
 console.log(`Array length: ${productArray.length}`);
 console.log(`Set size: ${productSet.size}`);
+
+let taxedPrice = calcTax(product.price);
+console.log(`Name: ${product.name}, Taxed Price: ${taxedPrice}`);
