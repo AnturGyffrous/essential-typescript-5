@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var calc_1 = require("./calc");
 var printMessage = function (msg) { return console.log("Message: ".concat(msg)); };
 var message = "Hello, TypeScript";
 printMessage(message);
@@ -5,3 +8,5 @@ var data = new Map();
 data.set("Bob", "London");
 data.set("Alice", "Paris");
 data.forEach(function (val, key) { return console.log("".concat(key, " lives in ").concat(val)); });
+var total = (0, calc_1.sum)(100, 200, 300);
+console.log("Total: ".concat(total));
