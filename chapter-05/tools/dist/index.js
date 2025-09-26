@@ -1,5 +1,2 @@
-function printMessage(msg) {
-    console.log(`Message: ${msg}`);
-}
+var printMessage = function (msg) { return console.log("Message: ".concat(msg)); };
 printMessage("Hello, TypeScript");
-printMessage("It is sunny today");
