@@ -11,5 +11,7 @@ data.set("Bob", "London");
 data.set("Alice", "Paris");
 data.forEach((val, key) => console.log(`${key} lives in ${val}`));
 
+debugger;
+
 let total = sum(100, 200, 300);
 console.log(`Total: ${total}`);
