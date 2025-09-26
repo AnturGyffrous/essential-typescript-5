@@ -1,4 +1,4 @@
-import { sum } from "./calc";
+import { sum } from "./calc.js";
 let printMessage = (msg) => console.log(`Message: ${msg}`);
 printMessage("Hello, TypeScript");
 let data = new Map();

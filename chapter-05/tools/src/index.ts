@@ -1,4 +1,4 @@
-import { sum } from "./calc";
+import { sum } from "./calc.js";
 
 let printMessage = (msg: string)
     : void => console.log(`Message: ${msg}`);
