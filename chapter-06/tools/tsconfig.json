@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "noEmitOnError": true,
+        // "lib": [
+        //     "ES5",
+        //     "DOM",
+        //     "ES2015.Collection"
+        // ]
+        "module": "node16"
+    }
+}
