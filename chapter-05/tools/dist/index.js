@@ -1,4 +1,6 @@
-import { sum } from "./calc.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calc_js_1 = require("./calc.js");
 let printMessage = (msg) => console.log(`Message: ${msg}`);
 let message = "Hello, TypeScript";
 printMessage(message);
@@ -6,5 +8,5 @@ let data = new Map();
 data.set("Bob", "London");
 data.set("Alice", "Paris");
 data.forEach((val, key) => console.log(`${key} lives in ${val}`));
-let total = sum(100, 200, 300);
+let total = (0, calc_js_1.sum)(100, 200, 300);
 console.log(`Total: ${total}`);
