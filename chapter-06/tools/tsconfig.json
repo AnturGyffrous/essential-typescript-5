@@ -9,6 +9,7 @@
         //     "DOM",
         //     "ES2015.Collection"
         // ]
-        "module": "node16"
+        "module": "node16",
+        "sourceMap": true
     }
 }

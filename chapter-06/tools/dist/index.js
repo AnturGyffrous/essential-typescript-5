@@ -10,3 +10,4 @@ data.set("Alice", "Paris");
 data.forEach((val, key) => console.log(`${key} lives in ${val}`));
 let total = (0, calc_js_1.sum)(100, 200, 300);
 console.log(`Total: ${total}`);
+//# sourceMappingURL=index.js.map
