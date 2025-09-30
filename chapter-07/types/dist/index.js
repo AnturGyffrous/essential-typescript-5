@@ -8,7 +8,7 @@ myVar = true;
 console.log(`${myVar} = ${typeof myVar}`);
 console.log();
 function calculateTax(amount) {
-    return amount * 1.2;
+    return (amount * 1.2).toFixed(2);
 }
 let price = 100;
 let taxAmount = calculateTax(price);
