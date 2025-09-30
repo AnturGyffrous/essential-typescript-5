@@ -15,3 +15,6 @@ let taxAmount = calculateTax(price);
 let halfShare = taxAmount / 2;
 console.log(`Full amount in tax: ${taxAmount}`);
 console.log(`Half share: ${halfShare}`);
+let newResult = calculateTax(200);
+let myNumber = newResult;
+console.log(`Number value: ${myNumber.toFixed(2)}`);
