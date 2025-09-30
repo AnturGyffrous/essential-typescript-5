@@ -9,7 +9,7 @@ console.log(`${myVar} = ${typeof myVar}`);
 
 console.log();
 
-function calculateTax(amount) {
+function calculateTax(amount: number): number {
     return amount * 1.2;
 }
 
