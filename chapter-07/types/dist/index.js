@@ -20,3 +20,5 @@ function calculateTax(amount, format) {
 // console.log(`Name: ${personVal}`);
 let taxNumber = calculateTax(100, false);
 let taxString = calculateTax(100, true);
+console.log(`Number Value: ${taxNumber.toFixed(2)}`);
+console.log(`String Value: ${taxString.charAt(0)}`);
