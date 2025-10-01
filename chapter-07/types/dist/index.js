@@ -28,7 +28,8 @@ console.log(`Number Value: ${taxNumber.toFixed(2)}`);
 console.log(`String Value: ${taxString.charAt(0)}`);
 console.log(`Boolean Value: ${taxBoolean}`);
 console.log();
-let taxValue = calculateTax(100, false);
+let taxValue;
+eval("taxValue = calculateTax(100, false)");
 if (taxValue !== null) {
     let nonNullTaxValue = taxValue;
     switch (typeof taxValue) {
