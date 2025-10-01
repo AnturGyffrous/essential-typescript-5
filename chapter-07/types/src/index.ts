@@ -10,6 +10,10 @@ console.log(`${myVar} = ${typeof myVar}`);
 console.log();
 
 function calculateTax(amount: number, format: boolean): string | number {
+    if (amount === 0) {
+        return null;
+    }
+
     const calcAmount = amount * 1.2;
     return format ? `$${calcAmount.toFixed(2)}` : calcAmount;
 }
@@ -34,7 +38,7 @@ console.log(`Boolean Value: ${taxBoolean}`);
 
 console.log();
 
-let taxValue = calculateTax(100, false);
+let taxValue: string | number = calculateTax(0, false);
 
 switch (typeof taxValue) {
     case "number":
