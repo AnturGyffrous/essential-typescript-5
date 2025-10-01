@@ -33,4 +33,7 @@ switch (typeof taxValue) {
     case "string":
         console.log(`String Value: ${taxValue.charAt(0)}`);
         break;
+    default:
+        let value = taxValue;
+        console.log(`Unexpected type of value: ${value}`);
 }
