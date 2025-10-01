@@ -38,7 +38,7 @@ console.log(`Boolean Value: ${taxBoolean}`);
 
 console.log();
 
-let taxValue: string | number | null;
+let taxValue!: string | number | null;
 eval("taxValue = calculateTax(100, false)");
 
 if (taxValue !== null) {
