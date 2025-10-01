@@ -37,8 +37,13 @@ switch (typeof taxValue) {
         console.log(`String Value: ${taxValue.charAt(0)}`);
         break;
     default:
-        let value = taxValue;
-        console.log(`Unexpected type of value: ${value}`);
+        if (taxValue === null) {
+            console.log("Value is null");
+        }
+        else {
+            let value = taxValue;
+            console.log(`Unexpected type of value: ${value}`);
+        }
 }
 console.log();
 let newResult = calculateTax(200, false);

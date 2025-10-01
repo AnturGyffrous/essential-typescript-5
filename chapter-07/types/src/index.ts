@@ -9,7 +9,7 @@ console.log(`${myVar} = ${typeof myVar}`);
 
 console.log();
 
-function calculateTax(amount: number, format: boolean): string | number {
+function calculateTax(amount: number, format: boolean): string | number | null {
     if (amount === 0) {
         return null;
     }
@@ -38,7 +38,7 @@ console.log(`Boolean Value: ${taxBoolean}`);
 
 console.log();
 
-let taxValue: string | number = calculateTax(0, false);
+let taxValue: string | number | null = calculateTax(0, false);
 
 switch (typeof taxValue) {
     case "number":
@@ -48,8 +48,12 @@ switch (typeof taxValue) {
         console.log(`String Value: ${taxValue.charAt(0)}`);
         break;
     default:
-        let value: never = taxValue;
-        console.log(`Unexpected type of value: ${value}`);
+        if (taxValue === null) {
+            console.log("Value is null");
+        } else {
+            let value: never = taxValue;
+            console.log(`Unexpected type of value: ${value}`);
+        }
 }
 
 console.log();
