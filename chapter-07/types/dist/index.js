@@ -28,7 +28,7 @@ console.log(`Number Value: ${taxNumber.toFixed(2)}`);
 console.log(`String Value: ${taxString.charAt(0)}`);
 console.log(`Boolean Value: ${taxBoolean}`);
 console.log();
-let taxValue = calculateTax(0, false);
+let taxValue = calculateTax(100, false);
 switch (typeof taxValue) {
     case "number":
         console.log(`Number Value: ${taxValue.toFixed(2)}`);

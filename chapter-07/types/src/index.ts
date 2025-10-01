@@ -38,7 +38,7 @@ console.log(`Boolean Value: ${taxBoolean}`);
 
 console.log();
 
-let taxValue: string | number | null = calculateTax(0, false);
+let taxValue: string | number = calculateTax(100, false)!;
 
 switch (typeof taxValue) {
     case "number":
