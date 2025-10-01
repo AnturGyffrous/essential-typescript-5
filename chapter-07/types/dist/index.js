@@ -29,21 +29,19 @@ console.log(`String Value: ${taxString.charAt(0)}`);
 console.log(`Boolean Value: ${taxBoolean}`);
 console.log();
 let taxValue = calculateTax(100, false);
-switch (typeof taxValue) {
-    case "number":
-        console.log(`Number Value: ${taxValue.toFixed(2)}`);
-        break;
-    case "string":
-        console.log(`String Value: ${taxValue.charAt(0)}`);
-        break;
-    default:
-        if (taxValue === null) {
-            console.log("Value is null");
-        }
-        else {
-            let value = taxValue;
-            console.log(`Unexpected type of value: ${value}`);
-        }
+if (taxValue !== null) {
+    let nonNullTaxValue = taxValue;
+    switch (typeof taxValue) {
+        case "number":
+            console.log(`Number Value: ${taxValue.toFixed(2)}`);
+            break;
+        case "string":
+            console.log(`String Value: ${taxValue.charAt(0)}`);
+            break;
+    }
+}
+else {
+    console.log("Value is not a string or a number");
 }
 console.log();
 let newResult = calculateTax(200, false);
