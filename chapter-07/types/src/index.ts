@@ -24,8 +24,8 @@ function calculateTax(amount: number, format: boolean): string | number {
 // console.log(`Half share: ${halfShare}`);
 // console.log(`Name: ${personVal}`);
 
-let taxNumber: string | number = calculateTax(100, false);
-let taxString: string | number = calculateTax(100, true);
+let taxNumber: string | number = calculateTax(100, false) as number;
+let taxString: string | number = calculateTax(100, true) as string;
 
 console.log(`Number Value: ${taxNumber.toFixed(2)}`);
 console.log(`String Value: ${taxString.charAt(0)}`);
