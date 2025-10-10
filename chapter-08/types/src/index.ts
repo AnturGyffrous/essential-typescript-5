@@ -1,12 +1,8 @@
-function calculateTax(amount: number | null, discount: number = 0, ...extraFees: number[]) {
-    if (amount != null) {
-        return (amount * 1.2) - discount + extraFees.reduce((total, val) => total + val, 0);
-    } else {
-        return undefined;
-    }
+function calculateTax(amount: number, discount: number = 0, ...extraFees: number[]): number {
+    return (amount * 1.2) - discount + extraFees.reduce((total, val) => total + val, 0);
 }
 
-let taxValue = calculateTax(null, 0);
+let taxValue = calculateTax(100, 0);
 console.log(`Tax value: ${taxValue}`);
 taxValue = calculateTax(100, 0);
 console.log(`2 args: ${taxValue}`);
