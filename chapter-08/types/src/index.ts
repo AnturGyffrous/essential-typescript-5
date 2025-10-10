@@ -1,10 +1,14 @@
+function check(expression: boolean) {
+    if (!expression) {
+        throw new Error("Expression is false");
+    }
+}
+
 function calculateTax(amount: number, discount?: number, ...extraFees: number[]): number
 function calculateTax(amount: null, discount?: number, ...extraFees: number[]): null
 function calculateTax(amount: number | null, discount: number = 0, ...extraFees: number[]): number | null {
-    if (amount != null) {
-        return (amount * 1.2) - discount + extraFees.reduce((total, val) => total + val, 0);
-    }
-    return null;
+    check(typeof amount == "number");
+    return (amount * 1.2) - discount + extraFees.reduce((total, val) => total + val, 0);
 }
 
 function writeValue(label: string, value: number): void {
