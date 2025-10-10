@@ -1,4 +1,4 @@
-function check(expression: boolean) {
+function check(expression: boolean): asserts expression {
     if (!expression) {
         throw new Error("Expression is false");
     }
