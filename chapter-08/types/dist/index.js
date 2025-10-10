@@ -8,22 +8,12 @@ function writeValue(label, value) {
     console.log(`${label}: ${value}`);
 }
 let taxValue = calculateTax(100);
-if (typeof taxValue === "number") {
-    writeValue("Tax value", taxValue);
-}
+writeValue("Tax value", taxValue);
 taxValue = calculateTax(100, 0);
-if (typeof taxValue === "number") {
-    writeValue("2 args", taxValue);
-}
+writeValue("2 args", taxValue);
 taxValue = calculateTax(100);
-if (typeof taxValue === "number") {
-    writeValue("1 arg", taxValue);
-}
+writeValue("1 arg", taxValue);
 taxValue = calculateTax(100, 10, 20);
-if (typeof taxValue === "number") {
-    writeValue("3 args", taxValue);
-}
+writeValue("3 args", taxValue);
 taxValue = calculateTax(100, 10, 20, 1, 30, 7);
-if (typeof taxValue === "number") {
-    writeValue("6 args", taxValue);
-}
+writeValue("6 args", taxValue);
