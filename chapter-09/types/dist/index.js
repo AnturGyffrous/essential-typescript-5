@@ -76,3 +76,6 @@ var City;
     City["NY"] = "New York";
 })(City || (City = {}));
 console.log(`City: ${City.London}`);
+console.log();
+let restrictedValue = 3;
+console.log(`Restricted Value: ${restrictedValue}`);

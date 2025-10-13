@@ -22,3 +22,4 @@ declare enum City {
     Paris = "Paris",
     NY = "New York"
 }
+declare let restrictedValue: 1 | 2 | 3;

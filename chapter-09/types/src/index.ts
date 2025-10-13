@@ -90,3 +90,8 @@ console.log();
 
 enum City { London = "London", Paris = "Paris", NY = "New York" }
 console.log(`City: ${City.London}`);
+
+console.log();
+
+let restrictedValue: 1 | 2 | 3 = 3;
+console.log(`Restricted Value: ${restrictedValue}`);
