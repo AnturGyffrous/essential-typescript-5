@@ -5,9 +5,14 @@ function writePrice(product, price) {
     console.log(`Price for ${product}: $${price.toFixed(2)}`);
 }
 let hat = ["Hat", 100];
-let gloves = ["Gloves", 75];
-writePrice(hat[0], hat[1]);
-writePrice(gloves[0], gloves[1]);
+let gloves = ["Gloves", 75, 10];
+[hat, gloves].forEach(tuple => {
+    let [name, price, taxRate] = tuple;
+    if (taxRate != undefined) {
+        price += price * (taxRate / 100);
+    }
+    writePrice(name, price);
+});
 console.log();
 let products = [["Hat", 100], ["Gloves", 75]];
 let tupleUnion = [true, false, hat, ...products];
