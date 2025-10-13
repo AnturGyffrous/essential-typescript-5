@@ -20,8 +20,8 @@ let gloves: [string, number, number?, ...number[]] = ["Gloves", 75, 10];
 
 console.log();
 
-let products: [string, number, number?, ...number[]][] = [["Hat", 100], ["Gloves", 75]];
-let tupleUnion: ([string, number, number?, ...number[]] | boolean)[] = [true, false, hat, ...products];
+let items: [string, number, number?, ...number[]][] = [["Hat", 100], ["Gloves", 75]];
+let tupleUnion: ([string, number, number?, ...number[]] | boolean)[] = [true, false, hat, ...items];
 tupleUnion.forEach((elem: [string, number] | boolean) => {
     if (elem instanceof Array) {
         let [str, num] = elem;
@@ -31,3 +31,23 @@ tupleUnion.forEach((elem: [string, number] | boolean) => {
         console.log(`Boolean Value: ${elem}`);
     }
 });
+
+console.log();
+
+enum Product { Hat, Gloves, Umbrella }
+
+let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]];
+
+products.forEach((prod: [Product, number]) => {
+    switch (prod[0]) {
+        case Product.Hat:
+            writePrice("Hat", calculateTax(prod[1]));
+            break;
+        case Product.Gloves:
+            writePrice("Gloves", calculateTax(prod[1]));
+            break;
+        case Product.Umbrella:
+            writePrice("Umbrella", calculateTax(prod[1]));
+            break;
+    }
+})
