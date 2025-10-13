@@ -6,8 +6,18 @@ function writePrice(product, price) {
 }
 let hat = ["Hat", 100];
 let gloves = ["Gloves", 75];
-let [hatName, hatPrice] = hat;
-console.log(`Name: ${hatName}`);
-console.log(`Price: ${hatPrice.toFixed(2)}`);
-console.log();
+writePrice(hat[0], hat[1]);
 writePrice(gloves[0], gloves[1]);
+console.log();
+let products = [["Hat", 100], ["Gloves", 75]];
+let tupleUnion = [true, false, hat, ...products];
+tupleUnion.forEach((elem) => {
+    if (elem instanceof Array) {
+        let [str, num] = elem;
+        console.log(`Name: ${str}`);
+        console.log(`Price: ${num.toFixed(2)}`);
+    }
+    else if (typeof elem === "boolean") {
+        console.log(`Boolean Value: ${elem}`);
+    }
+});
