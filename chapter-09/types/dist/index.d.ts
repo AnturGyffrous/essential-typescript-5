@@ -8,8 +8,6 @@ declare const enum OtherEnum {
     First = 10,
     Two = 20
 }
-declare let otherValue: OtherEnum;
-declare let otherName: string;
 declare enum Product {
     Hat = 11,
     Gloves = 20,

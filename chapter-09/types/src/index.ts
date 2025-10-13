@@ -40,10 +40,6 @@ const enum OtherEnum { First = 10, Two = 20 }
     console.log(`Other Enum Number value: ${val}`)
 })
 
-let otherValue: OtherEnum = 10;
-let otherName: string = OtherEnum[otherValue];
-console.log(`Other Value: ${otherValue}, Other Name: ${otherName}`);
-
 enum Product {
     Hat = OtherEnum.First + 1,
     Gloves = 20,
