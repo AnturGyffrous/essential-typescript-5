@@ -28,11 +28,9 @@ tupleUnion.forEach((elem) => {
     }
 });
 console.log();
-var OtherEnum;
-(function (OtherEnum) {
-    OtherEnum[OtherEnum["First"] = 10] = "First";
-    OtherEnum[OtherEnum["Two"] = 20] = "Two";
-})(OtherEnum || (OtherEnum = {}));
+[10 /* OtherEnum.First */, 20 /* OtherEnum.Two */].forEach(val => {
+    console.log(`Other Enum Number value: ${val}`);
+});
 var Product;
 (function (Product) {
     Product[Product["Hat"] = 11] = "Hat";

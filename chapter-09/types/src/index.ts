@@ -34,7 +34,12 @@ tupleUnion.forEach((elem: [string, number] | boolean) => {
 
 console.log();
 
-enum OtherEnum { First = 10, Two = 20 }
+const enum OtherEnum { First = 10, Two = 20 }
+
+[OtherEnum.First, OtherEnum.Two].forEach(val => {
+    console.log(`Other Enum Number value: ${val}`)
+})
+
 enum Product {
     Hat = OtherEnum.First + 1,
     Gloves = 20,

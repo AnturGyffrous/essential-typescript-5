@@ -4,7 +4,7 @@ declare let hat: [string, number, number?, ...number[]];
 declare let gloves: [string, number, number?, ...number[]];
 declare let items: [string, number, number?, ...number[]][];
 declare let tupleUnion: ([string, number, number?, ...number[]] | boolean)[];
-declare enum OtherEnum {
+declare const enum OtherEnum {
     First = 10,
     Two = 20
 }
