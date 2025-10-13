@@ -34,7 +34,7 @@ tupleUnion.forEach((elem: [string, number] | boolean) => {
 
 console.log();
 
-enum Product { Hat, Gloves, Umbrella }
+enum Product { Hat, Gloves = 20, Umbrella }
 
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach(val => {
     console.log(`Number value: ${val}`);

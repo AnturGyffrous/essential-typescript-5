@@ -6,8 +6,8 @@ declare let items: [string, number, number?, ...number[]][];
 declare let tupleUnion: ([string, number, number?, ...number[]] | boolean)[];
 declare enum Product {
     Hat = 0,
-    Gloves = 1,
-    Umbrella = 2
+    Gloves = 20,
+    Umbrella = 21
 }
 declare let productValue: Product;
 declare let productName: string;
