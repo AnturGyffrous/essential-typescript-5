@@ -109,8 +109,10 @@ console.log();
 let total = calculatePrice(2, 19.99);
 console.log(`Price: ${total}`);
 
-function getRandomValue(): 1 | 2 | 3 | 4 {
-    return Math.floor(Math.random() * 4) + 1 as 1 | 2 | 3 | 4;
+type numVals = 1 | 2 | 3 | 4;
+
+function getRandomValue(): numVals {
+    return Math.floor(Math.random() * 4) + 1 as numVals;
 }
 
 function getMixedValue(input: 1): 1;
@@ -135,8 +137,10 @@ let second = getMixedValue(2);
 let third = getMixedValue(4);
 console.log(`${first}, ${second}, ${third}`);
 
-function getCityString(city: "London" | "Paris" | "Chicago")
-    : `City: ${"London" | "Paris" | "Chicago"}` {
+type cities = "London" | "Paris" | "Chicago";
+type cityResponse = `City: ${cities}`;
+
+function getCityString(city: cities): cityResponse {
     return `City: ${city}`;
 }
 
