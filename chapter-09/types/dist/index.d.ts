@@ -33,3 +33,5 @@ declare function getMixedValue(input: 4): City.London;
 declare let first: 1;
 declare let second: true | "Hello";
 declare let third: City.London;
+declare function getCityString(city: "London" | "Paris" | "Chicago"): `City: ${"London" | "Paris" | "Chicago"}`;
+declare let str: "City: London" | "City: Paris" | "City: Chicago";
