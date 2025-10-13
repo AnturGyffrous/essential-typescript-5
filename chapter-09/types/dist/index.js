@@ -6,14 +6,8 @@ function writePrice(product, price) {
 }
 let hat = ["Hat", 100];
 let gloves = ["Gloves", 75];
-hat.forEach((h) => {
-    if (typeof h === "string") {
-        console.log(`String: ${h}`);
-    }
-    else {
-        console.log(`Number: ${h.toFixed(2)}`);
-    }
-});
+let [hatName, hatPrice] = hat;
+console.log(`Name: ${hatName}`);
+console.log(`Price: ${hatPrice.toFixed(2)}`);
 console.log();
-writePrice(hat[0], hat[1]);
 writePrice(gloves[0], gloves[1]);
