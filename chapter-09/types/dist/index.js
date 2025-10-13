@@ -34,6 +34,10 @@ var Product;
     Product[Product["Gloves"] = 1] = "Gloves";
     Product[Product["Umbrella"] = 2] = "Umbrella";
 })(Product || (Product = {}));
+[Product.Hat, Product.Gloves, Product.Umbrella].forEach(val => {
+    console.log(`Number value: ${val}`);
+});
+console.log();
 let products = [[Product.Hat, 100], [Product.Gloves, 75]];
 products.forEach((prod) => {
     switch (prod[0]) {
