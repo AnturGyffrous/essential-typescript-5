@@ -31,6 +31,9 @@ console.log();
 [10 /* OtherEnum.First */, 20 /* OtherEnum.Two */].forEach(val => {
     console.log(`Other Enum Number value: ${val}`);
 });
+let otherValue = 10;
+let otherName = OtherEnum[otherValue];
+console.log(`Other Value: ${otherValue}, Other Name: ${otherName}`);
 var Product;
 (function (Product) {
     Product[Product["Hat"] = 11] = "Hat";
