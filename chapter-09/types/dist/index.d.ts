@@ -16,3 +16,8 @@ declare enum Product {
 declare let productValue: Product;
 declare let productName: string;
 declare let products: [Product, number][];
+declare enum City {
+    London = "London",
+    Paris = "Paris",
+    NY = "New York"
+}

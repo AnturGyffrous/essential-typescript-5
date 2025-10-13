@@ -61,3 +61,11 @@ products.forEach((prod) => {
             break;
     }
 });
+console.log();
+var City;
+(function (City) {
+    City["London"] = "London";
+    City["Paris"] = "Paris";
+    City["NY"] = "New York";
+})(City || (City = {}));
+console.log(`City: ${City.London}`);

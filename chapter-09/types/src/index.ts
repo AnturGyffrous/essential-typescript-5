@@ -68,3 +68,8 @@ products.forEach((prod: [Product, number]) => {
             break;
     }
 })
+
+console.log();
+
+enum City { London = "London", Paris = "Paris", NY = "New York" }
+console.log(`City: ${City.London}`);
