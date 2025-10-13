@@ -26,3 +26,5 @@ declare let restrictedValue: 1 | 2 | 3;
 declare let secondValue: 1 | 10 | 100;
 declare function calculatePrice(quantity: 1 | 2, price: number): number;
 declare let total: number;
+declare function getRandomValue(): 1 | 2 | 3 | 4;
+declare function getMixedValue(): 1 | "Hello" | true | City.London;
