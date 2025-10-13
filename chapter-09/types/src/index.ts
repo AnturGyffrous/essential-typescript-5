@@ -93,5 +93,5 @@ console.log(`City: ${City.London}`);
 
 console.log();
 
-let restrictedValue: 1 | 2 | 3 = 3;
+let restrictedValue: 1 | 2 | 3 = 100;
 console.log(`Restricted Value: ${restrictedValue}`);

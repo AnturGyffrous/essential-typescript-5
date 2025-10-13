@@ -77,5 +77,5 @@ var City;
 })(City || (City = {}));
 console.log(`City: ${City.London}`);
 console.log();
-let restrictedValue = 3;
+let restrictedValue = 100;
 console.log(`Restricted Value: ${restrictedValue}`);
