@@ -9,4 +9,6 @@ declare enum Product {
     Gloves = 1,
     Umbrella = 2
 }
+declare let productValue: Product;
+declare let productName: string;
 declare let products: [Product, number][];

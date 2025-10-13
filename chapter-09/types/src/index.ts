@@ -42,6 +42,12 @@ enum Product { Hat, Gloves, Umbrella }
 
 console.log();
 
+let productValue: Product = 0;
+let productName: string = Product[productValue];
+console.log(`Value: ${productValue}, Name: ${productName}`);
+
+console.log();
+
 let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]];
 
 products.forEach((prod: [Product, number]) => {
