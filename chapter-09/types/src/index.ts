@@ -9,6 +9,6 @@ function writePrice(product: string, price: number): void {
 let prices: number[] = [100, 75, 42];
 let names: string[] = ["Hat", "Gloves", "Umbrella"];
 
-writePrice(names[0], calculateTax(prices[0]));
-writePrice(names[1], calculateTax(prices[1]));
-writePrice(names[2], calculateTax(prices[2]));
+prices.forEach((price: number, index: number) => {
+    writePrice(names[index], calculateTax(price));
+});
