@@ -47,6 +47,15 @@ let productValue = 11;
 let productName = Product[productValue];
 console.log(`Value: ${productValue}, Name: ${productName}`);
 console.log();
+productValue = Product.Hat;
+if (typeof productValue) {
+    console.log("Value is a number");
+}
+let unionValue = Product.Hat;
+if (typeof unionValue) {
+    console.log("Value is a number");
+}
+console.log();
 let products = [[Product.Hat, 100], [Product.Gloves, 75]];
 products.forEach((prod) => {
     switch (prod[0]) {
