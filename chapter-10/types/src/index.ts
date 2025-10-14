@@ -20,4 +20,10 @@ let bob = { id: "bsmith", name: "Bob", city: "London" };
 
 let dataItems: (Product | Person)[] = [hat, gloves, umbrella, bob];
 
-dataItems.forEach(item => console.log(`ID: ${item.id}, Name: ${item.name}, Type: ${typeof item}`));
+dataItems.forEach(item => {
+    if ("city" in item) {
+        console.log(`Person: ${item.name}, City: ${item.city}`);
+    } else {
+        console.log(`Product: ${item.name}, Price: ${item.price}`);
+    }
+});
