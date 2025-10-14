@@ -4,6 +4,14 @@ type Person = {
     city: string
 };
 
+type Employee = {
+    id: string,
+    name: string,
+    dept: string,
+    city: string,
+    writeDept: () => void
+};
+
 let Employee = function (id: string, name: string, dept: string,
     city: string) {
     this.id = id;
@@ -26,7 +34,7 @@ let data: (Person | Employee)[] = [
 ];
 
 data.forEach(item => {
-    if (item instanceof Employee) {
+    if ("dept" in item) {
         item.writeDept();
     } else {
         console.log(`${item.id} ${item.name}, ${item.city}`);

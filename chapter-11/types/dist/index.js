@@ -15,7 +15,7 @@ let data = [
     salesEmployee
 ];
 data.forEach(item => {
-    if (item instanceof Employee) {
+    if ("dept" in item) {
         item.writeDept();
     }
     else {
