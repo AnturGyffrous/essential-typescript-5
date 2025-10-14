@@ -1,3 +1,7 @@
+declare enum Feature {
+    Waterproof = 0,
+    Insulated = 1
+}
 declare let hat: {
     name: string;
     price: number;
@@ -9,9 +13,10 @@ declare let gloves: {
 declare let umbrella: {
     name: string;
     price: number;
-    waterproof: boolean;
+    hasFeature: (feature: any) => boolean;
 };
 declare let products: {
     name: string;
-    price: number;
+    price?: number;
+    hasFeature?(Feature: any): boolean;
 }[];
