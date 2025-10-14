@@ -58,7 +58,15 @@ let employees: Employee[] =
 
 let employedPeople: EmployedPerson[] = correlateData(people, employees);
 
+function writePerson(per: Person): void {
+    console.log(`Person: ${per.id}, ${per.name}, ${per.city}`);
+}
+
+function writeEmployee(emp: Employee): void {
+    console.log(`Employee: ${emp.id}, ${emp.company}, ${emp.dept}`);
+}
+
 employedPeople.forEach(item => {
-    console.log(`Person: ${item.id}, ${item.name}, ${item.city}`);
-    console.log(`Employee: ${item.id}, ${item.company}, ${item.dept}`);
+    writePerson(item);
+    writeEmployee(item);
 })
