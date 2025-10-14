@@ -13,10 +13,6 @@ type Person = {
     name: string;
     city: string;
 };
-type UnionType = {
-    id: number | string;
-    name: string;
-};
 declare let hat: {
     id: number;
     name: string;
@@ -38,4 +34,4 @@ declare let bob: {
     name: string;
     city: string;
 };
-declare let dataItems: UnionType[];
+declare let dataItems: (Product | Person)[];
