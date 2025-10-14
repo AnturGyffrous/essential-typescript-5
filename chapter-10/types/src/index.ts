@@ -25,6 +25,16 @@ type EmployedPerson = Person & Employee;
 
 let typeTest = ({} as EmployedPerson).contact;
 
+let person1: EmployedPerson = {
+    id: "bsmith", name: "Bob Smith", city: "London",
+    company: "Acme Co", dept: "Sales", contact: "Alice"
+};
+
+let person2: EmployedPerson = {
+    id: "dpeters", name: "Dora Peters", city: "New York",
+    company: "Acme Co", dept: "Development", contact: 6512346543
+};
+
 // let hat = { id: 1, name: "Hat", price: 100 };
 // let gloves = { id: 2, name: "Gloves", price: 75 };
 // let umbrella = { id: 3, name: "Umbrella", price: 30, hasFeature: (feature: Feature) => feature === Feature.Waterproof };
