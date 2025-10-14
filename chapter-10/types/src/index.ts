@@ -10,63 +10,67 @@ type Product = {
 type Person = {
     id: string,
     name: string,
-    city: string
+    city: string,
+    contact: number
 }
 
 type Employee = {
     id: string,
     company: string,
-    dept: string
+    dept: string,
+    contact: string
 };
 
 type EmployedPerson = Person & Employee;
 
-let hat = { id: 1, name: "Hat", price: 100 };
-let gloves = { id: 2, name: "Gloves", price: 75 };
-let umbrella = { id: 3, name: "Umbrella", price: 30, hasFeature: (feature: Feature) => feature === Feature.Waterproof };
-let bob = { id: "bsmith", name: "Bob", city: "London", company: "Acme Co", dept: "Sales" };
+let typeTest = ({} as EmployedPerson).contact;
 
-let dataItems: (Product | Person)[] = [hat, gloves, umbrella, bob];
+// let hat = { id: 1, name: "Hat", price: 100 };
+// let gloves = { id: 2, name: "Gloves", price: 75 };
+// let umbrella = { id: 3, name: "Umbrella", price: 30, hasFeature: (feature: Feature) => feature === Feature.Waterproof };
+// let bob = { id: "bsmith", name: "Bob", city: "London", company: "Acme Co", dept: "Sales" };
 
-function isPerson(testObj: any): testObj is Person {
-    return testObj.city !== undefined;
-}
+// let dataItems: (Product | Person)[] = [hat, gloves, umbrella, bob];
 
-dataItems.forEach(item => {
-    if (isPerson(item)) {
-        console.log(`Person: ${item.name}, City: ${item.city}`);
-    } else {
-        console.log(`Product: ${item.name}, Price: ${item.price}`);
-    }
-});
+// function isPerson(testObj: any): testObj is Person {
+//     return testObj.city !== undefined;
+// }
 
-console.log();
+// dataItems.forEach(item => {
+//     if (isPerson(item)) {
+//         console.log(`Person: ${item.name}, City: ${item.city}`);
+//     } else {
+//         console.log(`Product: ${item.name}, Price: ${item.price}`);
+//     }
+// });
 
-function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[] {
-    const defaults = { company: "None", dept: "None" };
-    return peopleData.map(p => ({ ...p, ...staff.find(e => e.id === p.id) || { ...defaults, id: p.id } }));
-}
+// console.log();
 
-let people: Person[] =
-    [{ id: "bsmith", name: "Bob Smith", city: "London" },
-    { id: "ajones", name: "Alice Jones", city: "Paris" },
-    { id: "dpeters", name: "Dora Peters", city: "New York" }];
+// function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[] {
+//     const defaults = { company: "None", dept: "None" };
+//     return peopleData.map(p => ({ ...p, ...staff.find(e => e.id === p.id) || { ...defaults, id: p.id } }));
+// }
 
-let employees: Employee[] =
-    [{ id: "bsmith", company: "Acme Co", dept: "Sales" },
-    { id: "dpeters", company: "Acme Co", dept: "Development" }];
+// let people: Person[] =
+//     [{ id: "bsmith", name: "Bob Smith", city: "London" },
+//     { id: "ajones", name: "Alice Jones", city: "Paris" },
+//     { id: "dpeters", name: "Dora Peters", city: "New York" }];
 
-let employedPeople: EmployedPerson[] = correlateData(people, employees);
+// let employees: Employee[] =
+//     [{ id: "bsmith", company: "Acme Co", dept: "Sales" },
+//     { id: "dpeters", company: "Acme Co", dept: "Development" }];
 
-function writePerson(per: Person): void {
-    console.log(`Person: ${per.id}, ${per.name}, ${per.city}`);
-}
+// let employedPeople: EmployedPerson[] = correlateData(people, employees);
 
-function writeEmployee(emp: Employee): void {
-    console.log(`Employee: ${emp.id}, ${emp.company}, ${emp.dept}`);
-}
+// function writePerson(per: Person): void {
+//     console.log(`Person: ${per.id}, ${per.name}, ${per.city}`);
+// }
 
-employedPeople.forEach(item => {
-    writePerson(item);
-    writeEmployee(item);
-})
+// function writeEmployee(emp: Employee): void {
+//     console.log(`Employee: ${emp.id}, ${emp.company}, ${emp.dept}`);
+// }
+
+// employedPeople.forEach(item => {
+//     writePerson(item);
+//     writeEmployee(item);
+// })
