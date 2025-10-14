@@ -13,6 +13,10 @@ type Person = {
     name: string;
     city: string;
 };
+type Employee = {
+    company: string;
+    dept: string;
+};
 declare let hat: {
     id: number;
     name: string;
@@ -33,6 +37,9 @@ declare let bob: {
     id: string;
     name: string;
     city: string;
+    company: string;
+    dept: string;
 };
 declare let dataItems: (Product | Person)[];
 declare function isPerson(testObj: any): testObj is Person;
+declare let people: (Person & Employee)[];
