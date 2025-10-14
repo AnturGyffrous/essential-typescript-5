@@ -14,9 +14,12 @@ type Person = {
 }
 
 type Employee = {
+    id: string,
     company: string,
     dept: string
 };
+
+type EmployedPerson = Person & Employee;
 
 let hat = { id: 1, name: "Hat", price: 100 };
 let gloves = { id: 2, name: "Gloves", price: 75 };
@@ -39,9 +42,23 @@ dataItems.forEach(item => {
 
 console.log();
 
-let people: (Person & Employee)[] = [bob];
+function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[] {
+    const defaults = { company: "None", dept: "None" };
+    return peopleData.map(p => ({ ...p, ...staff.find(e => e.id === p.id) || { ...defaults, id: p.id } }));
+}
 
-people.forEach(item => {
+let people: Person[] =
+    [{ id: "bsmith", name: "Bob Smith", city: "London" },
+    { id: "ajones", name: "Alice Jones", city: "Paris" },
+    { id: "dpeters", name: "Dora Peters", city: "New York" }];
+
+let employees: Employee[] =
+    [{ id: "bsmith", company: "Acme Co", dept: "Sales" },
+    { id: "dpeters", company: "Acme Co", dept: "Development" }];
+
+let employedPeople: EmployedPerson[] = correlateData(people, employees);
+
+employedPeople.forEach(item => {
     console.log(`Person: ${item.id}, ${item.name}, ${item.city}`);
     console.log(`Employee: ${item.id}, ${item.company}, ${item.dept}`);
 })
