@@ -12,23 +12,16 @@ type Person = {
     id: string;
     name: string;
     city: string;
-    contact: {
-        phone: number;
-    };
+    getContact(field: string): string;
 };
 type Employee = {
     id: string;
     company: string;
     dept: string;
-    contact: {
-        name: string;
-    };
+    getContact(field: number): number;
 };
 type EmployedPerson = Person & Employee;
-declare let typeTest: {
-    phone: number;
-} & {
-    name: string;
-};
-declare let person1: EmployedPerson;
-declare let person2: EmployedPerson;
+declare let person: EmployedPerson;
+declare let typeTest: ((field: string) => string) & ((field: number) => number);
+declare let stringParamTypeTest: string;
+declare let numberParamTypeTest: number;

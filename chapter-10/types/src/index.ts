@@ -11,29 +11,31 @@ type Person = {
     id: string,
     name: string,
     city: string,
-    contact: { phone: number }
+    getContact(field: string): string
 }
 
 type Employee = {
     id: string,
     company: string,
     dept: string,
-    contact: { name: string }
+    getContact(field: number): number
 };
 
 type EmployedPerson = Person & Employee;
 
-let typeTest = ({} as EmployedPerson).contact;
-
-let person1: EmployedPerson = {
+let person: EmployedPerson = {
     id: "bsmith", name: "Bob Smith", city: "London",
-    company: "Acme Co", dept: "Sales", contact: { name: "Alice", phone: 6512346543 }
+    company: "Acme Co", dept: "Sales",
+    getContact(field: string | number): any { return typeof field === "string" ? "Alice" : 6512346543 }
 };
 
-let person2: EmployedPerson = {
-    id: "dpeters", name: "Dora Peters", city: "New York",
-    company: "Acme Co", dept: "Development", contact: { name: "Alice", phone: 6512346543 }
-};
+let typeTest = person.getContact;
+
+let stringParamTypeTest = person.getContact("Alice");
+let numberParamTypeTest = person.getContact(123);
+
+console.log(`Contact: ${person.getContact("Alice")}`);
+console.log(`Contact: ${person.getContact(12)}`);
 
 // let hat = { id: 1, name: "Hat", price: 100 };
 // let gloves = { id: 2, name: "Gloves", price: 75 };
