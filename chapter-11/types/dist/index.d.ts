@@ -1,18 +1,15 @@
-type Person = {
+declare class Person {
     id: string;
     name: string;
     city: string;
-};
-declare class Employee {
+    constructor(id: string, name: string, city: string);
+}
+declare class Employee extends Person {
     readonly id: string;
     name: string;
     private dept;
-    private city;
+    city: string;
     constructor(id: string, name: string, dept: string, city: string);
     writeDept(): void;
-    get location(): string;
-    get details(): string;
-    accessor salary: number;
 }
-declare let salesEmployee: Employee;
 declare let data: (Person | Employee)[];
