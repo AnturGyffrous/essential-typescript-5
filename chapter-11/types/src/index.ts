@@ -17,13 +17,14 @@ class Customer extends Person {
         super(id, name, city);
     }
 }
+
 class Supplier extends Person {
     constructor(public readonly id: string, public name: string, public city: string, public companyName: string) {
         super(id, name, city);
     }
 }
 
-let data = [
+let data: Person[] = [
     new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
     new Customer("ajones", "Alice Jones", "London", 500)
 ];
