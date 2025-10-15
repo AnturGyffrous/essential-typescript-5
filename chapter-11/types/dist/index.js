@@ -22,16 +22,13 @@ class Employee {
                 return this.city;
         }
     }
-    set location(newCity) {
-        this.city = newCity;
-    }
 }
 ;
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
 console.log(`Location: ${salesEmployee.location}`);
-salesEmployee.location = "London";
-console.log(`Location: ${salesEmployee.location}`);
+// salesEmployee.location = "London";
+// console.log(`Location: ${salesEmployee.location}`);
 console.log();
 let data = [
     { id: "bsmith", name: "Bob Smith", city: "London" },
