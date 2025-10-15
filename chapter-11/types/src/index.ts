@@ -5,26 +5,18 @@ type Person = {
 };
 
 class Employee {
-    public readonly id: string;
-    public name: string;
-    #dept: string;
-    public city: string;
-
-    constructor(id: string, name: string, dept: string, city: string) {
-        this.id = id;
-        this.name = name;
-        this.#dept = dept;
-        this.city = city;
+    constructor(public readonly id: string, public name: string, private dept: string, public city: string) {
+        // no statements required
     }
 
     writeDept() {
-        console.log(`${this.name} works in ${this.#dept}`);
+        console.log(`${this.name} works in ${this.dept}`);
     }
 };
 
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
-salesEmployee.id = "fidel";
+// salesEmployee.id = "fidel";
 
 let data: (Person | Employee)[] = [
     { id: "bsmith", name: "Bob Smith", city: "London" },
