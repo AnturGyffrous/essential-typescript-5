@@ -13,7 +13,14 @@ class Employee {
         console.log(`${this.name} works in ${this.dept}`);
     }
     get location() {
-        return this.city;
+        switch (this.city) {
+            case "Paris":
+                return "France";
+            case "London":
+                return "UK";
+            default:
+                return this.city;
+        }
     }
     set location(newCity) {
         this.city = newCity;

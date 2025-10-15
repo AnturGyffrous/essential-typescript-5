@@ -16,7 +16,14 @@ class Employee {
     }
 
     get location() {
-        return this.city;
+        switch (this.city) {
+            case "Paris":
+                return "France";
+            case "London":
+                return "UK";
+            default:
+                return this.city;
+        }
     }
     set location(newCity) {
         this.city = newCity;
