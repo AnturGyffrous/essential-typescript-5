@@ -28,12 +28,15 @@ class Employee {
     get details() {
         return `${this.name}, ${this.dept}, ${this.location}`;
     }
+
+    accessor salary: number = 100_000;
 };
 
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
 console.log(`Location: ${salesEmployee.location}`);
 console.log(`Details: ${salesEmployee.details}`);
+console.log(`Salary: ${salesEmployee.salary}`);
 
 console.log();
 

@@ -25,12 +25,16 @@ class Employee {
     get details() {
         return `${this.name}, ${this.dept}, ${this.location}`;
     }
+    #salary_accessor_storage = 100000;
+    get salary() { return this.#salary_accessor_storage; }
+    set salary(value) { this.#salary_accessor_storage = value; }
 }
 ;
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
 console.log(`Location: ${salesEmployee.location}`);
 console.log(`Details: ${salesEmployee.details}`);
+console.log(`Salary: ${salesEmployee.salary}`);
 console.log();
 let data = [
     { id: "bsmith", name: "Bob Smith", city: "London" },
