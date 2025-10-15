@@ -7,9 +7,11 @@ declare class Employee {
     readonly id: string;
     name: string;
     private dept;
-    city: string;
+    private city;
     constructor(id: string, name: string, dept: string, city: string);
     writeDept(): void;
+    get location(): string;
+    set location(newCity: string);
 }
 declare let salesEmployee: Employee;
 declare let data: (Person | Employee)[];

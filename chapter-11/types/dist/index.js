@@ -8,16 +8,24 @@ class Employee {
         this.name = name;
         this.dept = dept;
         this.city = city;
-        // no statements required
     }
     writeDept() {
         console.log(`${this.name} works in ${this.dept}`);
+    }
+    get location() {
+        return this.city;
+    }
+    set location(newCity) {
+        this.city = newCity;
     }
 }
 ;
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
-// salesEmployee.id = "fidel";
+console.log(`Location: ${salesEmployee.location}`);
+salesEmployee.location = "London";
+console.log(`Location: ${salesEmployee.location}`);
+console.log();
 let data = [
     { id: "bsmith", name: "Bob Smith", city: "London" },
     { id: "ajones", name: "Alice Jones", city: "Paris" },
