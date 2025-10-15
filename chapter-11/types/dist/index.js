@@ -22,13 +22,15 @@ class Employee {
                 return this.city;
         }
     }
+    get details() {
+        return `${this.name}, ${this.dept}, ${this.location}`;
+    }
 }
 ;
 let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
 salesEmployee.writeDept();
 console.log(`Location: ${salesEmployee.location}`);
-// salesEmployee.location = "London";
-// console.log(`Location: ${salesEmployee.location}`);
+console.log(`Details: ${salesEmployee.details}`);
 console.log();
 let data = [
     { id: "bsmith", name: "Bob Smith", city: "London" },

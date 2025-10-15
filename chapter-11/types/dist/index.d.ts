@@ -11,6 +11,7 @@ declare class Employee {
     constructor(id: string, name: string, dept: string, city: string);
     writeDept(): void;
     get location(): string;
+    get details(): string;
 }
 declare let salesEmployee: Employee;
 declare let data: (Person | Employee)[];
