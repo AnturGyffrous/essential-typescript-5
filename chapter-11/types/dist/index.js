@@ -1,16 +1,16 @@
 class Employee {
     id;
     name;
-    dept;
+    #dept;
     city;
     constructor(id, name, dept, city) {
         this.id = id;
         this.name = name;
-        this.dept = dept;
+        this.#dept = dept;
         this.city = city;
     }
     writeDept() {
-        console.log(`${this.name} works in ${this.dept}`);
+        console.log(`${this.name} works in ${this.#dept}`);
     }
 }
 ;
