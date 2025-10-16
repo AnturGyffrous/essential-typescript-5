@@ -94,5 +94,7 @@ let group = new ProductGroup(["shoes", shoes]);
 group.hat = new SportsProduct("Hat", "Skiing", 20);
 Object.keys(group).forEach(k => console.log(`Property Name: ${k}`));
 
-let total = group.hat.price + group.boots.price;
-console.log(`Total: ${total}`);
+if (group.hat && group.boots) {
+    let total = group.hat.price + group.boots.price;
+    console.log(`Total: ${total}`);
+}
