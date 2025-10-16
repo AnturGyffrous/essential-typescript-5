@@ -2,7 +2,7 @@ interface Person {
     name: string;
     getDetails(): string;
 }
-interface DogOwner {
+interface DogOwner extends Person {
     dogName: string;
     getDogDetails(): string;
 }
@@ -14,7 +14,7 @@ declare class Employee implements Person {
     constructor(id: string, name: string, dept: string, city: string);
     getDetails(): string;
 }
-declare class Customer implements Person, DogOwner {
+declare class Customer implements DogOwner {
     readonly id: string;
     name: string;
     city: string;

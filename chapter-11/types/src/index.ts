@@ -3,7 +3,7 @@ interface Person {
     getDetails(): string;
 };
 
-interface DogOwner {
+interface DogOwner extends Person {
     dogName: string;
     getDogDetails(): string;
 };
@@ -17,7 +17,7 @@ class Employee implements Person {
     }
 };
 
-class Customer implements Person, DogOwner {
+class Customer implements DogOwner {
     constructor(public readonly id: string, public name: string, public city: string, public creditLimit: number, public dogName: string) { }
 
     getDetails() {
