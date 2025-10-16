@@ -4,6 +4,10 @@ interface Person {
     dogName?: string;
     getDogDetails?(): string;
 }
+interface Product {
+    name: string;
+    price: number;
+}
 declare abstract class AbstractDogOwner implements Person {
     abstract name: string;
     abstract dogName?: string;
@@ -35,5 +39,11 @@ declare class Supplier implements Person {
     constructor(id: string, name: string, city: string, companyName: string);
     getDetails(): string;
 }
+declare class SportsProduct implements Product {
+    name: string;
+    category: string;
+    price: number;
+    constructor(name: string, category: string, price: number);
+}
 declare let alice: DogOwningCustomer;
-declare let data: Person[];
+declare let data: (Person | Product)[];

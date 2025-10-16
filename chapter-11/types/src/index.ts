@@ -6,6 +6,11 @@ interface Person {
     getDogDetails?(): string;
 };
 
+interface Product {
+    name: string;
+    price: number;
+}
+
 abstract class AbstractDogOwner implements Person {
     abstract name: string;
     abstract dogName?: string;
@@ -47,18 +52,27 @@ class Supplier implements Person {
     }
 }
 
+class SportsProduct implements Product {
+    constructor(public name: string, public category: string, public price: number) { }
+}
+
 let alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido");
 
-let data: Person[] = [
+let data: (Person | Product)[] = [
     new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
+    new SportsProduct("Running Shoes", "Running", 90.50),
     alice
 ];
 
 data.push(new Supplier("dpeters", "Dora Peters", "New York", "Acme"));
 
 data.forEach(item => {
-    console.log(item.getDetails());
-    if (item.getDogDetails) {
-        console.log(item.getDogDetails());
+    if ("getDetails" in item) {
+        console.log(`Person: ${item.getDetails()}`);
+        if (item.getDogDetails) {
+            console.log(`Person: ${item.getDogDetails()}`);
+        }
+    } else {
+        console.log(`Product: ${item.name}, ${item.price}`);
     }
 });

@@ -55,15 +55,31 @@ class Supplier {
         return `${this.name} works for ${this.companyName}`;
     }
 }
+class SportsProduct {
+    name;
+    category;
+    price;
+    constructor(name, category, price) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+}
 let alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido");
 let data = [
     new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
+    new SportsProduct("Running Shoes", "Running", 90.50),
     alice
 ];
 data.push(new Supplier("dpeters", "Dora Peters", "New York", "Acme"));
 data.forEach(item => {
-    console.log(item.getDetails());
-    if (item.getDogDetails) {
-        console.log(item.getDogDetails());
+    if ("getDetails" in item) {
+        console.log(`Person: ${item.getDetails()}`);
+        if (item.getDogDetails) {
+            console.log(`Person: ${item.getDogDetails()}`);
+        }
+    }
+    else {
+        console.log(`Product: ${item.name}, ${item.price}`);
     }
 });
