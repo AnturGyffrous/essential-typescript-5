@@ -4,6 +4,9 @@ class AbstractDogOwner {
         if (this.dogName) {
             return `${this.name} has a dog names ${this.dogName}`;
         }
+        else {
+            return "";
+        }
     }
 }
 class Employee {

@@ -20,6 +20,8 @@ abstract class AbstractDogOwner implements Person {
     getDogDetails(): string {
         if (this.dogName) {
             return `${this.name} has a dog names ${this.dogName}`;
+        } else {
+            return "";
         }
     }
 }
