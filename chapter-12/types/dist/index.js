@@ -1,7 +1,6 @@
 import { Person, Product } from "./dataTypes.js";
 let people = [new Person("Bob Smith", "London"), new Person("Dora Peters", "New York")];
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
-// type dataType = Person | Product;
 class DataCollection {
     items = [];
     constructor(initialItems) {
@@ -18,8 +17,8 @@ class DataCollection {
     }
 }
 let peopleData = new DataCollection(people);
-// console.log(`Names: ${peopleData.getNames().join(", ")}`);
 let firstPerson = peopleData.getItem(0);
-// if (firstPerson instanceof Person) {
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
-// }
+let productData = new DataCollection(products);
+let firstProduct = productData.getItem(0);
+console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`);
