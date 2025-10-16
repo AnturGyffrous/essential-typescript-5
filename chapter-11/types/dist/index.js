@@ -1,4 +1,11 @@
 ;
+class AbstractDogOwner {
+    getDogDetails() {
+        if (this.dogName) {
+            return `${this.name} has a dog names ${this.dogName}`;
+        }
+    }
+}
 class Employee {
     id;
     name;
@@ -15,13 +22,14 @@ class Employee {
     }
 }
 ;
-class Customer {
+class DogOwningCustomer extends AbstractDogOwner {
     id;
     name;
     city;
     creditLimit;
     dogName;
     constructor(id, name, city, creditLimit, dogName) {
+        super();
         this.id = id;
         this.name = name;
         this.city = city;
@@ -30,9 +38,6 @@ class Customer {
     }
     getDetails() {
         return `${this.name} has ${this.creditLimit} limit`;
-    }
-    getDogDetails() {
-        return `${this.name} has a dog names ${this.dogName}`;
     }
 }
 class Supplier {
@@ -50,7 +55,7 @@ class Supplier {
         return `${this.name} works for ${this.companyName}`;
     }
 }
-let alice = new Customer("ajones", "Alice Jones", "London", 500, "Fido");
+let alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido");
 let data = [
     new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
     alice
