@@ -57,10 +57,11 @@ class SportsProduct implements Product {
 }
 
 let alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido");
+let shoes = new SportsProduct("Running Shoes", "Running", 90.50);
 
 let data: (Person | Product)[] = [
     new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
-    new SportsProduct("Running Shoes", "Running", 90.50),
+    shoes,
     alice
 ];
 
@@ -76,3 +77,17 @@ data.forEach(item => {
         console.log(`Product: ${item.name}, ${item.price}`);
     }
 });
+
+console.log();
+
+class ProductGroup {
+    constructor(...initialProducts: [string, Product][]) {
+        initialProducts.forEach(p => this[p[0]] = p[1]);
+    }
+
+    [propertyName: string]: Product;
+}
+
+let group = new ProductGroup(["shoes", shoes]);
+group.hat = new SportsProduct("Hat", "Skiing", 20);
+Object.keys(group).forEach(k => console.log(`Property Name: ${k}`));

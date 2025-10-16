@@ -46,4 +46,10 @@ declare class SportsProduct implements Product {
     constructor(name: string, category: string, price: number);
 }
 declare let alice: DogOwningCustomer;
+declare let shoes: SportsProduct;
 declare let data: (Person | Product)[];
+declare class ProductGroup {
+    constructor(...initialProducts: [string, Product][]);
+    [propertyName: string]: Product;
+}
+declare let group: ProductGroup;
