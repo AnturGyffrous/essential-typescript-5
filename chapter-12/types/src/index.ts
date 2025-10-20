@@ -4,11 +4,22 @@ let people = [new Person("Bob Smith", "London"), new Person("Dora Peters", "New 
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 let cities = [new City("London", 8136000), new City("Paris", 2141000)];
 
-class DataCollection<T extends { name: string }> {
+class DataCollection<T extends { name: string }, U> {
     private items: T[] = [];
 
     constructor(initialItems: T[]) {
         this.items.push(...initialItems);
+    }
+
+    collate(targetData: U[], itemProp: string, targetProp: string): (T & U)[] {
+        let results = [];
+        this.items.forEach(item => {
+            let match = targetData.find(d => d[targetProp] === item[itemProp]);
+            if (match !== undefined) {
+                results.push({ ...match, ...item });
+            }
+        });
+        return results;
     }
 
     add(newItem: T) {
@@ -24,15 +35,20 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-let peopleData = new DataCollection<Person>(people);
+let peopleData = new DataCollection<Person, City>(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
 
-let productData = new DataCollection<Product>(products);
+let productData = new DataCollection<Product, City>(products);
 let firstProduct = productData.getItem(0);
 console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`);
 console.log(`Product Names: ${productData.getNames().join(", ")}`);
 
-let cityData = new DataCollection<City>(cities);
+let cityData = new DataCollection<City, City>(cities);
 console.log(`City Names: ${cityData.getNames().join(", ")}`);
+
+console.log();
+
+let collatedData = peopleData.collate(cities, "city", "name");
+collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
