@@ -28,7 +28,7 @@ class DataCollection {
         return this.items[index];
     }
 }
-let peopleData = new DataCollection(people);
+export let peopleData = new DataCollection(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
@@ -39,7 +39,7 @@ console.log(`Product Names: ${productData.getNames().join(", ")}`);
 let cityData = new DataCollection(cities);
 console.log(`City Names: ${cityData.getNames().join(", ")}`);
 console.log();
-let collatedData = peopleData.collate(cities, "city", "name");
+export let collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
-let empData = peopleData.collate(employees, "name", "name");
+export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
