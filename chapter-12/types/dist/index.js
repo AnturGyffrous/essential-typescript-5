@@ -28,7 +28,15 @@ class DataCollection {
         return this.items[index];
     }
 }
-export let peopleData = new DataCollection(people);
+class SearchableCollection extends DataCollection {
+    constructor(initialItems) {
+        super(initialItems);
+    }
+    find(name) {
+        return this.items.find(item => item.name === name);
+    }
+}
+export let peopleData = new SearchableCollection(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
@@ -43,3 +51,7 @@ export let collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
+let foundPerson = peopleData.find("Bob Smith");
+if (foundPerson !== undefined) {
+    console.log(`Person ${foundPerson.name}, ${foundPerson.city}`);
+}
