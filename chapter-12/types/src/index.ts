@@ -36,23 +36,23 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-let peopleData = new DataCollection<Person>(people);
+let peopleData = new DataCollection(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
 
-let productData = new DataCollection<Product>(products);
+let productData = new DataCollection(products);
 let firstProduct = productData.getItem(0);
 console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`);
 console.log(`Product Names: ${productData.getNames().join(", ")}`);
 
-let cityData = new DataCollection<City>(cities);
+let cityData = new DataCollection(cities);
 console.log(`City Names: ${cityData.getNames().join(", ")}`);
 
 console.log();
 
-let collatedData = peopleData.collate<City>(cities, "city", "name");
+let collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 
-let empData = peopleData.collate<Employee>(employees, "name", "name");
+let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
