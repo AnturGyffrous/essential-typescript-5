@@ -5,7 +5,7 @@ declare class DataCollection<T> {
     collate<U>(targetData: U[], itemProp: string, targetProp: string): (T & U)[];
     add(newItem: T): void;
     getItem(index: number): T;
-    filter<V extends T>(): V[];
+    filter<V extends T>(predicate: (target: any) => target is V): V[];
 }
 export declare let peopleData: DataCollection<Person>;
 export declare let collatedData: (Person & City)[];

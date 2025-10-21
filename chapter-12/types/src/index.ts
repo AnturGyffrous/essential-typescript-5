@@ -31,8 +31,8 @@ class DataCollection<T> {
         return this.items[index];
     }
 
-    filter<V extends T>(): V[] {
-        return this.items.filter(item => item instanceof V) as V[];
+    filter<V extends T>(predicate: (target) => target is V): V[] {
+        return this.items.filter(item => predicate(item)) as V[];
     }
 }
 
@@ -72,5 +72,8 @@ let employeeData = new SearchableCollection<Employee>(employees)
 employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
 
 let mixedData = new DataCollection<Person | Product>([...people, ...products]);
-let filteredProducts = mixedData.filter<Product>();
+function isProduct(target): target is Product {
+    return target instanceof Product;
+}
+let filteredProducts = mixedData.filter<Product>(isProduct);
 filteredProducts.forEach(p => console.log(`Product: ${p.name}, ${p.price}`));

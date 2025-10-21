@@ -24,8 +24,8 @@ class DataCollection {
     getItem(index) {
         return this.items[index];
     }
-    filter() {
-        return this.items.filter(item => item instanceof V);
+    filter(predicate) {
+        return this.items.filter(item => predicate(item));
     }
 }
 class SearchableCollection extends DataCollection {
@@ -57,5 +57,8 @@ empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
 let employeeData = new SearchableCollection(employees);
 employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
 let mixedData = new DataCollection([...people, ...products]);
-let filteredProducts = mixedData.filter();
+function isProduct(target) {
+    return target instanceof Product;
+}
+let filteredProducts = mixedData.filter(isProduct);
 filteredProducts.forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
