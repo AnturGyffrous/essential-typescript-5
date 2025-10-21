@@ -9,13 +9,7 @@ declare class DataCollection<T extends {
     getNames(): string[];
     getItem(index: number): T;
 }
-declare class SearchableCollection<T extends {
-    name: string;
-}> extends DataCollection<T> {
-    constructor(initialItems: T[]);
-    find(name: string): T | undefined;
-}
-export declare let peopleData: SearchableCollection<Person>;
+export declare let peopleData: DataCollection<Person>;
 export declare let collatedData: (Person & City)[];
 export declare let empData: (Person & Employee)[];
 export {};

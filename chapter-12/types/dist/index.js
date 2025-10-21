@@ -32,11 +32,11 @@ class SearchableCollection extends DataCollection {
     constructor(initialItems) {
         super(initialItems);
     }
-    find(name) {
-        return this.items.find(item => item.name === name);
+    find(searchTerm) {
+        return this.items.filter(item => item.role === searchTerm);
     }
 }
-export let peopleData = new SearchableCollection(people);
+export let peopleData = new DataCollection(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
@@ -51,7 +51,5 @@ export let collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
-let foundPerson = peopleData.find("Bob Smith");
-if (foundPerson !== undefined) {
-    console.log(`Person ${foundPerson.name}, ${foundPerson.city}`);
-}
+let employeeData = new SearchableCollection(employees);
+employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));

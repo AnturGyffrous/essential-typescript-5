@@ -36,17 +36,17 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-class SearchableCollection<T extends { name: string }> extends DataCollection<T> {
-    constructor(initialItems: T[]) {
+class SearchableCollection extends DataCollection<Employee> {
+    constructor(initialItems: Employee[]) {
         super(initialItems);
     }
 
-    find(name: string): T | undefined {
-        return this.items.find(item => item.name === name);
+    find(searchTerm: string): Employee[] {
+        return this.items.filter(item => item.role === searchTerm);
     }
 }
 
-export let peopleData = new SearchableCollection<Person>(people);
+export let peopleData = new DataCollection<Person>(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
 console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
@@ -67,7 +67,5 @@ collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
 
-let foundPerson = peopleData.find("Bob Smith");
-if (foundPerson !== undefined) {
-    console.log(`Person ${foundPerson.name}, ${foundPerson.city}`);
-}
+let employeeData = new SearchableCollection(employees)
+employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
