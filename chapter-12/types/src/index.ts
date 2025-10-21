@@ -36,13 +36,19 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-class SearchableCollection extends DataCollection<Employee> {
-    constructor(initialItems: Employee[]) {
+class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
+    constructor(initialItems: T[]) {
         super(initialItems);
     }
 
-    find(searchTerm: string): Employee[] {
-        return this.items.filter(item => item.role === searchTerm);
+    find(searchTerm: string): T[] {
+        return this.items.filter(item => {
+            if (item instanceof Employee) {
+                return item.name === searchTerm || item.role === searchTerm;
+            } else if (item instanceof Person) {
+                return item.name === searchTerm || item.city === searchTerm;
+            }
+        });
     }
 }
 
@@ -67,5 +73,5 @@ collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
 
-let employeeData = new SearchableCollection(employees)
+let employeeData = new SearchableCollection<Employee>(employees)
 employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
