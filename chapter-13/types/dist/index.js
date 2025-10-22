@@ -1,26 +1,19 @@
-import { Product, Employee } from "./dataTypes.js";
-function getValue(item, keyname) {
-    return item[keyname];
-}
-let p = new Product("Running Shoes", 100);
-console.log(getValue(p, "name"));
-console.log(getValue(p, "price"));
-let e = new Employee("Bob Smith", "Sales");
-console.log(getValue(e, "name"));
-console.log(getValue(e, "role"));
-console.log();
+import { Product } from "./dataTypes.js";
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
+// type shapeType = { name: string };
 class Collection {
+    propertyName;
     items;
-    constructor(initialItems = []) {
+    constructor(initialItems = [], propertyName) {
+        this.propertyName = propertyName;
         this.items = new Map();
         this.add(...initialItems);
     }
     add(...newItems) {
-        newItems.forEach(newItem => this.items.set(newItem.name, newItem));
+        newItems.forEach(newItem => this.items.set(newItem[this.propertyName], newItem));
     }
-    get(name) {
-        return this.items.get(name);
+    get(key) {
+        return this.items.get(key);
     }
     get count() {
         return this.items.size;
@@ -29,6 +22,7 @@ class Collection {
         return this.items.values();
     }
 }
-let productCollection = new Collection(products);
+let productCollection = new Collection(products, "name");
 console.log(`There are ${productCollection.count} products`);
-[...productCollection].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+let itemByKey = productCollection.get("Hat");
+console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
