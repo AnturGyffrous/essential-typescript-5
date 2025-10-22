@@ -1,8 +1,6 @@
 import { Product } from "./dataTypes.js";
 let p = { name: "Kayak", price: 275 };
 console.log(`Mapped type: ${p.name}, ${p.price}`);
-let c = { name: "London", population: 8136000 };
-console.log(`Mapped type: ${c.name}, ${c.population}`);
 console.log();
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
