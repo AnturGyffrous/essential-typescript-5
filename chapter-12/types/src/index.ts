@@ -25,6 +25,22 @@ interface PeopleCollection<T extends Product | Employee> extends Collection<T> {
     getNames(): string[];
 }
 
+class ArrayCollection<DataType extends shapeType> implements Collection<DataType> {
+    private items: DataType[] = [];
+
+    add(...newItems: DataType[]): void {
+        this.items.push(...newItems);
+    }
+
+    get(name: string): DataType {
+        return this.items.find(item => item.name === name);
+    }
+
+    get count(): number {
+        return this.items.length;
+    }
+}
+
 class DataCollection<T> {
     protected items: T[] = [];
 
@@ -106,3 +122,9 @@ console.log();
 
 let reversedCities = DataCollection.reverse<City>(cities);
 reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));
+
+console.log();
+
+let peopleCollection: Collection<Person> = new ArrayCollection<Person>();
+peopleCollection.add(...people);
+console.log(`Collection size: ${peopleCollection.count}`);
