@@ -21,9 +21,4 @@ class Collection {
 }
 let productCollection = new Collection(products);
 console.log(`There are ${productCollection.count} products`);
-let iterator = productCollection.values();
-let result = iterator.next();
-while (!result.done) {
-    console.log(`Product: ${result.value.name}, ${result.value.price}`);
-    result = iterator.next();
-}
+[...productCollection.values()].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
