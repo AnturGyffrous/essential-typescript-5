@@ -1,4 +1,7 @@
 import { Product } from "./dataTypes.js";
+let myVar = "name";
+myVar = "price";
+myVar = "someOtherName";
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
     items;
