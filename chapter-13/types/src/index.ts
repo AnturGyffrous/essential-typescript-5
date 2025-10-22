@@ -4,7 +4,7 @@ let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 
 type shapeType = { name: string };
 
-class Collection<T extends shapeType> {
+class Collection<T extends shapeType> implements Iterable<T> {
     private items: Map<string, T>;
 
     constructor(initialItems: T[] = []) {
@@ -24,7 +24,7 @@ class Collection<T extends shapeType> {
         return this.items.size;
     }
 
-    values(): IterableIterator<T> {
+    [Symbol.iterator](): Iterator<T> {
         return this.items.values();
     }
 }
@@ -32,4 +32,4 @@ class Collection<T extends shapeType> {
 let productCollection: Collection<Product> = new Collection(products);
 console.log(`There are ${productCollection.count} products`);
 
-[...productCollection.values()].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+[...productCollection].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
