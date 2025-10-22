@@ -31,21 +31,20 @@ class DataCollection {
         return items.reverse();
     }
 }
-class SearchableCollection extends DataCollection {
-    constructor(initialItems) {
-        super(initialItems);
-    }
-    find(searchTerm) {
-        return this.items.filter(item => {
-            if (item instanceof Employee) {
-                return item.name === searchTerm || item.role === searchTerm;
-            }
-            else if (item instanceof Person) {
-                return item.name === searchTerm || item.city === searchTerm;
-            }
-        });
-    }
-}
+// class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
+//     constructor(initialItems: T[]) {
+//         super(initialItems);
+//     }
+//     find(searchTerm: string): T[] {
+//         return this.items.filter(item => {
+//             if (item instanceof Employee) {
+//                 return item.name === searchTerm || item.role === searchTerm;
+//             } else if (item instanceof Person) {
+//                 return item.name === searchTerm || item.city === searchTerm;
+//             }
+//         });
+//     }
+// }
 export let peopleData = new DataCollection(people);
 let firstPerson = peopleData.getItem(0);
 console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
@@ -57,8 +56,8 @@ export let collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
-let employeeData = new SearchableCollection(employees);
-employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
+// let employeeData = new SearchableCollection<Employee>(employees)
+// employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
 let mixedData = new DataCollection([...people, ...products]);
 function isProduct(target) {
     return target instanceof Product;

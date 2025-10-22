@@ -13,6 +13,18 @@ interface Collection<T extends shapeType> {
     count: number;
 }
 
+interface SearchableCollection<T extends shapeType> extends Collection<T> {
+    find(name: string): T | undefined;
+}
+
+interface ProductCollection extends Collection<Product> {
+    sumPrices(): number;
+}
+
+interface PeopleCollection<T extends Product | Employee> extends Collection<T> {
+    getNames(): string[];
+}
+
 class DataCollection<T> {
     protected items: T[] = [];
 
@@ -48,21 +60,21 @@ class DataCollection<T> {
     }
 }
 
-class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
-    constructor(initialItems: T[]) {
-        super(initialItems);
-    }
+// class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
+//     constructor(initialItems: T[]) {
+//         super(initialItems);
+//     }
 
-    find(searchTerm: string): T[] {
-        return this.items.filter(item => {
-            if (item instanceof Employee) {
-                return item.name === searchTerm || item.role === searchTerm;
-            } else if (item instanceof Person) {
-                return item.name === searchTerm || item.city === searchTerm;
-            }
-        });
-    }
-}
+//     find(searchTerm: string): T[] {
+//         return this.items.filter(item => {
+//             if (item instanceof Employee) {
+//                 return item.name === searchTerm || item.role === searchTerm;
+//             } else if (item instanceof Person) {
+//                 return item.name === searchTerm || item.city === searchTerm;
+//             }
+//         });
+//     }
+// }
 
 export let peopleData = new DataCollection<Person>(people);
 let firstPerson = peopleData.getItem(0);
@@ -80,8 +92,8 @@ collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
 export let empData = peopleData.collate(employees, "name", "name");
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
 
-let employeeData = new SearchableCollection<Employee>(employees)
-employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
+// let employeeData = new SearchableCollection<Employee>(employees)
+// employeeData.find("Sales").forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
 
 let mixedData = new DataCollection<Person | Product>([...people, ...products]);
 function isProduct(target): target is Product {
