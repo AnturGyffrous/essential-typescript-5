@@ -6,6 +6,7 @@ declare class DataCollection<T> {
     add(newItem: T): void;
     getItem(index: number): T;
     filter<V extends T>(predicate: (target: any) => target is V): V[];
+    static reverse(items: any[]): any[];
 }
 export declare let peopleData: DataCollection<Person>;
 export declare let collatedData: (Person & City)[];

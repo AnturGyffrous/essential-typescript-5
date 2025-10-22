@@ -27,6 +27,9 @@ class DataCollection {
     filter(predicate) {
         return this.items.filter(item => predicate(item));
     }
+    static reverse(items) {
+        return items.reverse();
+    }
 }
 class SearchableCollection extends DataCollection {
     constructor(initialItems) {
@@ -62,3 +65,6 @@ function isProduct(target) {
 }
 let filteredProducts = mixedData.filter(isProduct);
 filteredProducts.forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+console.log();
+let reversedCities = DataCollection.reverse(cities);
+reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));

@@ -34,6 +34,10 @@ class DataCollection<T> {
     filter<V extends T>(predicate: (target) => target is V): V[] {
         return this.items.filter(item => predicate(item)) as V[];
     }
+
+    static reverse(items: any[]) {
+        return items.reverse();
+    }
 }
 
 class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
@@ -77,3 +81,8 @@ function isProduct(target): target is Product {
 }
 let filteredProducts = mixedData.filter<Product>(isProduct);
 filteredProducts.forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+
+console.log();
+
+let reversedCities: City[] = DataCollection.reverse(cities);
+reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));
