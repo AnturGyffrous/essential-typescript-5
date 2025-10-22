@@ -5,18 +5,22 @@ let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 type shapeType = { name: string };
 
 class Collection<T extends shapeType> {
-    constructor(private items: T[] = []) { }
+    private items: Set<T>;
+
+    constructor(initialItems: T[] = []) {
+        this.items = new Set<T>(initialItems);
+    }
 
     add(...newItems: T[]): void {
-        this.items.push(...newItems);
+        newItems.forEach(newItem => this.items.add(newItem));
     }
 
     get(name: string): T {
-        return this.items.find(item => item.name === name);
+        return [...this.items.values()].find(item => item.name === name);
     }
 
     get count(): number {
-        return this.items.length;
+        return this.items.size;
     }
 }
 

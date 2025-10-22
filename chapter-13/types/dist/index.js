@@ -2,17 +2,17 @@ import { Product } from "./dataTypes.js";
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
     items;
-    constructor(items = []) {
-        this.items = items;
+    constructor(initialItems = []) {
+        this.items = new Set(initialItems);
     }
     add(...newItems) {
-        this.items.push(...newItems);
+        newItems.forEach(newItem => this.items.add(newItem));
     }
     get(name) {
-        return this.items.find(item => item.name === name);
+        return [...this.items.values()].find(item => item.name === name);
     }
     get count() {
-        return this.items.length;
+        return this.items.size;
     }
 }
 let productCollection = new Collection(products);
