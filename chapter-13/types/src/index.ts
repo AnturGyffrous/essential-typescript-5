@@ -1,8 +1,15 @@
 import { City, Person, Product, Employee } from "./dataTypes.js";
 
-let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
+type MappedProduct = {
+    [P in "name" | "price"]: Product[P]
+};
 
-// type shapeType = { name: string };
+let p: MappedProduct = { name: "Kayak", price: 275 };
+console.log(`Mapped type: ${p.name}, ${p.price}`);
+
+console.log();
+
+let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 
 class Collection<T, K extends keyof T> implements Iterable<T> {
     private items: Map<T[K], T>;
