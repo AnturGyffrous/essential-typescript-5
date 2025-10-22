@@ -17,27 +17,33 @@ interface SearchableCollection<T extends shapeType> extends Collection<T> {
     find(name: string): T | undefined;
 }
 
-interface ProductCollection extends Collection<Product> {
-    sumPrices(): number;
-}
-
 interface PeopleCollection<T extends Product | Employee> extends Collection<T> {
     getNames(): string[];
 }
 
-class PersonCollection implements Collection<Person> {
-    private items: Person[] = [];
+abstract class ArrayCollection<T extends shapeType> implements Collection<T> {
+    protected items: T[] = [];
 
-    add(...newItems: Person[]): void {
+    add(...newItems: T[]): void {
         this.items.push(...newItems);
     }
 
-    get(name: string): Person {
-        return this.items.find(item => item.name === name);
-    }
+    abstract get(name: string): T;
 
     get count(): number {
         return this.items.length;
+    }
+}
+
+class ProductCollection extends ArrayCollection<Product> {
+    get(searchTerm: string): Product {
+        return this.items.find(item => item.name === searchTerm);
+    }
+}
+
+class PersonCollection extends ArrayCollection<Person> {
+    get(searchTerm: string): Person {
+        return this.items.find(item => item.name === searchTerm || item.city == searchTerm);
     }
 }
 
@@ -127,4 +133,6 @@ console.log();
 
 let peopleCollection: Collection<Person> = new PersonCollection();
 peopleCollection.add(...people);
-console.log(`Collection size: ${peopleCollection.count}`);
+let productCollection: Collection<Product> = new ProductCollection();
+productCollection.add(...products);
+[peopleCollection, productCollection].forEach(c => console.log(`Size: ${c.count}`));

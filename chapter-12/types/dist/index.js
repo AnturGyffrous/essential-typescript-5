@@ -3,16 +3,23 @@ let people = [new Person("Bob Smith", "London"), new Person("Dora Peters", "New 
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 let cities = [new City("London", 8136000), new City("Paris", 2141000)];
 let employees = [new Employee("Bob Smith", "Sales"), new Employee("Alice Jones", "Sales")];
-class PersonCollection {
+class ArrayCollection {
     items = [];
     add(...newItems) {
         this.items.push(...newItems);
     }
-    get(name) {
-        return this.items.find(item => item.name === name);
-    }
     get count() {
         return this.items.length;
+    }
+}
+class ProductCollection extends ArrayCollection {
+    get(searchTerm) {
+        return this.items.find(item => item.name === searchTerm);
+    }
+}
+class PersonCollection extends ArrayCollection {
+    get(searchTerm) {
+        return this.items.find(item => item.name === searchTerm || item.city == searchTerm);
     }
 }
 class DataCollection {
@@ -82,4 +89,6 @@ reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));
 console.log();
 let peopleCollection = new PersonCollection();
 peopleCollection.add(...people);
-console.log(`Collection size: ${peopleCollection.count}`);
+let productCollection = new ProductCollection();
+productCollection.add(...products);
+[peopleCollection, productCollection].forEach(c => console.log(`Size: ${c.count}`));
