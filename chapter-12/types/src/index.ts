@@ -25,14 +25,14 @@ interface PeopleCollection<T extends Product | Employee> extends Collection<T> {
     getNames(): string[];
 }
 
-class ArrayCollection<DataType extends shapeType> implements Collection<DataType> {
-    private items: DataType[] = [];
+class PersonCollection implements Collection<Person> {
+    private items: Person[] = [];
 
-    add(...newItems: DataType[]): void {
+    add(...newItems: Person[]): void {
         this.items.push(...newItems);
     }
 
-    get(name: string): DataType {
+    get(name: string): Person {
         return this.items.find(item => item.name === name);
     }
 
@@ -125,6 +125,6 @@ reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));
 
 console.log();
 
-let peopleCollection: Collection<Person> = new ArrayCollection<Person>();
+let peopleCollection: Collection<Person> = new PersonCollection();
 peopleCollection.add(...people);
 console.log(`Collection size: ${peopleCollection.count}`);

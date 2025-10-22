@@ -3,7 +3,7 @@ let people = [new Person("Bob Smith", "London"), new Person("Dora Peters", "New 
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 let cities = [new City("London", 8136000), new City("Paris", 2141000)];
 let employees = [new Employee("Bob Smith", "Sales"), new Employee("Alice Jones", "Sales")];
-class ArrayCollection {
+class PersonCollection {
     items = [];
     add(...newItems) {
         this.items.push(...newItems);
@@ -80,6 +80,6 @@ console.log();
 let reversedCities = DataCollection.reverse(cities);
 reversedCities.forEach(c => console.log(`City: ${c.name}, ${c.population}`));
 console.log();
-let peopleCollection = new ArrayCollection();
+let peopleCollection = new PersonCollection();
 peopleCollection.add(...people);
 console.log(`Collection size: ${peopleCollection.count}`);
