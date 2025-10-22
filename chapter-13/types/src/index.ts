@@ -1,16 +1,15 @@
 import { City, Person, Product, Employee } from "./dataTypes.js";
 
-type MakeReadWrite<T> = {
-    -readonly [P in keyof T]: T[P]
+type SelectProperties<T, K extends keyof T> = {
+    [P in K]: T[P]
 };
 
-type optionalType = Partial<Product>;
-type requiredType = Required<optionalType>;
-type readOnlyType = Readonly<requiredType>;
-type readWriteType = MakeReadWrite<readOnlyType>;
-
-let p: readWriteType = { name: "Kayak", price: 275 };
-console.log(`Mapped type: ${p.name}, ${p.price}`);
+let p1: SelectProperties<Product, "name"> = { name: "Kayak" };
+let p2: Pick<Product, "name"> = { name: "Kayak" };
+let p3: Omit<Product, "price"> = { name: "Kayak" };
+console.log(`Custom mapped type: ${p1.name}`);
+console.log(`Built-in mapped type (Pick): ${p2.name}`);
+console.log(`Built-in mapped type (Omit): ${p3.name}`);
 
 console.log();
 

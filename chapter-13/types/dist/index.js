@@ -1,6 +1,10 @@
 import { Product } from "./dataTypes.js";
-let p = { name: "Kayak", price: 275 };
-console.log(`Mapped type: ${p.name}, ${p.price}`);
+let p1 = { name: "Kayak" };
+let p2 = { name: "Kayak" };
+let p3 = { name: "Kayak" };
+console.log(`Custom mapped type: ${p1.name}`);
+console.log(`Built-in mapped type (Pick): ${p2.name}`);
+console.log(`Built-in mapped type (Omit): ${p3.name}`);
 console.log();
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
