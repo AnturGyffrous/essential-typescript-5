@@ -1,7 +1,7 @@
 import { City, Person, Product, Employee } from "./dataTypes.js";
 
 type MappedProduct = {
-    [P in "name" | "price"]: Product[P]
+    [P in keyof Product]: Product[P]
 };
 
 let p: MappedProduct = { name: "Kayak", price: 275 };
