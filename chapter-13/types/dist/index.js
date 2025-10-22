@@ -3,13 +3,14 @@ let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
     items;
     constructor(initialItems = []) {
-        this.items = new Set(initialItems);
+        this.items = new Map();
+        this.add(...initialItems);
     }
     add(...newItems) {
-        newItems.forEach(newItem => this.items.add(newItem));
+        newItems.forEach(newItem => this.items.set(newItem.name, newItem));
     }
     get(name) {
-        return [...this.items.values()].find(item => item.name === name);
+        return this.items.get(name);
     }
     get count() {
         return this.items.size;
