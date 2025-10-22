@@ -22,7 +22,7 @@ class Collection {
         return this.items.values();
     }
 }
-let productCollection = new Collection(products, "name");
+let productCollection = new Collection(products, "price");
 console.log(`There are ${productCollection.count} products`);
-let itemByKey = productCollection.get("Hat");
+let itemByKey = productCollection.get(100);
 console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
