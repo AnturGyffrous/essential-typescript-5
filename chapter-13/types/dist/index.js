@@ -58,3 +58,13 @@ function total(data, propName) {
     return data.reduce((t, item) => t += Number(item[propName]), 0);
 }
 console.log(`Total: ${total(products, "price")}`);
+function getValue(data, propName) {
+    if (Array.isArray(data)) {
+        return data[0][propName];
+    }
+    else {
+        return data[propName];
+    }
+}
+console.log(`Array Value: ${getValue(products, "price")}`);
+console.log(`Single Total: ${getValue(products[0], "price")}`);
