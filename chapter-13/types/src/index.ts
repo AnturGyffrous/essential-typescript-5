@@ -24,7 +24,7 @@ let firstVal: nestedType<"London"> = new City("Paris", 2141000);
 let secondVal: nestedType<"Bob"> = new Person("Alice", "Paris");
 let thirdVal: nestedType<"Kayak"> = new Product("Running Shoes", 100);
 
-let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
+let products = [new Product("Running Shoes", 100), new Product("Hat", 25), new Product("Lifejacket", 48.95)];
 
 class Collection<T, K extends keyof T> implements Iterable<T> {
     private items: Map<T[K], T>;
@@ -96,3 +96,16 @@ function convertProduct(p: Product): modifiedProduct {
 
 let kayak = convertProduct(new Product("Kayak", 275));
 console.log(`Product: ${kayak.name}, ${kayak.price}`);
+
+type unionOfTypeNames<T, U> = {
+    [P in keyof T]: T[P] extends U ? P : never;
+};
+
+type propertiesOfType<T, U> = unionOfTypeNames<T, U>[keyof T];
+
+function total<T, P extends propertiesOfType<T, number>>(data: T[],
+    propName: P): number {
+    return data.reduce((t, item) => t += Number(item[propName]), 0);
+}
+
+console.log(`Total: ${total(products, "price")}`);

@@ -9,7 +9,7 @@ let secondBoolVal = 100;
 let firstVal = new City("Paris", 2141000);
 let secondVal = new Person("Alice", "Paris");
 let thirdVal = new Product("Running Shoes", 100);
-let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
+let products = [new Product("Running Shoes", 100), new Product("Hat", 25), new Product("Lifejacket", 48.95)];
 class Collection {
     propertyName;
     items;
@@ -54,3 +54,7 @@ function convertProduct(p) {
 }
 let kayak = convertProduct(new Product("Kayak", 275));
 console.log(`Product: ${kayak.name}, ${kayak.price}`);
+function total(data, propName) {
+    return data.reduce((t, item) => t += Number(item[propName]), 0);
+}
+console.log(`Total: ${total(products, "price")}`);
