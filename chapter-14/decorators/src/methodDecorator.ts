@@ -1,8 +1,8 @@
-interface HasGetPrice {
-    getPrice(): number;
-}
+// interface HasGetPrice {
+//     getPrice(): number;
+// }
 
-export function time<This extends HasGetPrice, Args extends any[], Result>(
+export function time<This, Args extends any[], Result extends string | number>(
     method: (This, Args) => Result,
     ctx: ClassMethodDecoratorContext<This, (This, Args) => Result>) {
     const methodName = String(ctx.name);

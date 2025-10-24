@@ -1,3 +1,6 @@
+// interface HasGetPrice {
+//     getPrice(): number;
+// }
 export function time(method, ctx) {
     const methodName = String(ctx.name);
     return function (...args) {
