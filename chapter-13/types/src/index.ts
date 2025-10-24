@@ -13,6 +13,9 @@ console.log();
 
 type resultType<T extends boolean> = T extends true ? string : number;
 
+let firstBoolVal: resultType<true> = "String value";
+let secondBoolVal: resultType<false> = 100;
+
 type references = "London" | "Bob" | "Kayak";
 
 type nestedType<T extends references> = T extends "London" ? City : T extends "Bob" ? Person : Product;
@@ -39,10 +42,10 @@ class Collection<T, K extends keyof T> implements Iterable<T> {
         return this.items.get(key);
     }
 
-    total<P extends keyof T, U extends boolean>(propName: P, format: U): resultType<U> {
-        let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
-        return format ? `$${totalValue.toFixed()}` : totalValue as any;
-    }
+    // total<P extends keyof T, U extends boolean>(propName: P, format: U): resultType<U> {
+    //     let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
+    //     return format ? `$${totalValue.toFixed()}` : totalValue as any;
+    // }
 
     get count(): number {
         return this.items.size;
@@ -61,7 +64,22 @@ console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
 
 console.log();
 
-let firstGenericVal: string = productCollection.total("price", true);
-console.log(`Formatted value: ${firstGenericVal}`);
-let secondGenericVal: number = productCollection.total("price", false);
-console.log(`Unformatted value: ${secondGenericVal}`);
+// let firstGenericVal: string = productCollection.total("price", true);
+// console.log(`Formatted value: ${firstGenericVal}`);
+// let secondGenericVal: number = productCollection.total("price", false);
+// console.log(`Unformatted value: ${secondGenericVal}`);
+
+type Filter<T, U> = T extends U ? never : T;
+
+function FilterArray<T, U>(data: T[], predicate: (item) => item is U): Filter<T, U>[] {
+    return data.filter(item => !predicate(item)) as any;
+}
+
+let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50)];
+
+function isProduct(item: any): item is Product {
+    return item instanceof Product;
+}
+
+let filteredData: Person[] = FilterArray(dataArray, isProduct);
+filteredData.forEach(item => console.log(`Person: ${item.name}`));

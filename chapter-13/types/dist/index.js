@@ -4,6 +4,8 @@ let p2 = { name: "Alice", city: "Paris" };
 console.log(`Custom mapped type: ${p1.name}, ${p1.city}`);
 console.log(`Built-in mapped type: ${p2.name}, ${p2.city}`);
 console.log();
+let firstBoolVal = "String value";
+let secondBoolVal = 100;
 let firstVal = new City("Paris", 2141000);
 let secondVal = new Person("Alice", "Paris");
 let thirdVal = new Product("Running Shoes", 100);
@@ -22,10 +24,10 @@ class Collection {
     get(key) {
         return this.items.get(key);
     }
-    total(propName, format) {
-        let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
-        return format ? `$${totalValue.toFixed()}` : totalValue;
-    }
+    // total<P extends keyof T, U extends boolean>(propName: P, format: U): resultType<U> {
+    //     let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
+    //     return format ? `$${totalValue.toFixed()}` : totalValue as any;
+    // }
     get count() {
         return this.items.size;
     }
@@ -38,7 +40,12 @@ console.log(`There are ${productCollection.count} products`);
 let itemByKey = productCollection.get(100);
 console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
 console.log();
-let firstGenericVal = productCollection.total("price", true);
-console.log(`Formatted value: ${firstGenericVal}`);
-let secondGenericVal = productCollection.total("price", false);
-console.log(`Unformatted value: ${secondGenericVal}`);
+function FilterArray(data, predicate) {
+    return data.filter(item => !predicate(item));
+}
+let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50)];
+function isProduct(item) {
+    return item instanceof Product;
+}
+let filteredData = FilterArray(dataArray, isProduct);
+filteredData.forEach(item => console.log(`Person: ${item.name}`));
