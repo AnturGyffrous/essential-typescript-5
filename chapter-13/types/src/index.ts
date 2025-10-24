@@ -69,9 +69,9 @@ console.log();
 // let secondGenericVal: number = productCollection.total("price", false);
 // console.log(`Unformatted value: ${secondGenericVal}`);
 
-type Filter<T, U> = T extends U ? never : T;
+type Exclude<T, U> = T extends U ? never : T;
 
-function FilterArray<T, U>(data: T[], predicate: (item) => item is U): Filter<T, U>[] {
+function FilterArray<T, U>(data: T[], predicate: (item) => item is U): Exclude<T, U>[] {
     return data.filter(item => !predicate(item)) as any;
 }
 
