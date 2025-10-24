@@ -1,12 +1,12 @@
-import { Product } from "./dataTypes.js";
+import { City, Person, Product } from "./dataTypes.js";
 let p1 = { name: "Bob", city: "London" };
 let p2 = { name: "Alice", city: "Paris" };
 console.log(`Custom mapped type: ${p1.name}, ${p1.city}`);
 console.log(`Built-in mapped type: ${p2.name}, ${p2.city}`);
 console.log();
-let firstVal = "String Value";
-let secondVal = 100;
-let mismatchCheck = "String Value";
+let firstVal = new City("London", 8136000);
+let secondVal = new Person("Bob", "London");
+let thirdVal = new Product("Kayak", 275);
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
     propertyName;

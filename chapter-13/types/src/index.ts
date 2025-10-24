@@ -13,10 +13,13 @@ console.log();
 
 type resultType<T extends boolean> = T extends true ? string : number;
 
-let firstVal: resultType<true> = "String Value";
-let secondVal: resultType<false> = 100;
+type references = "London" | "Bob" | "Kayak";
 
-let mismatchCheck: resultType<false> = "String Value";
+type nestedType<T extends references> = T extends "London" ? City : T extends "Bob" ? Person : Product;
+
+let firstVal: nestedType<"London"> = new City("London", 8136000);
+let secondVal: nestedType<"Bob"> = new Person("Bob", "London");
+let thirdVal: nestedType<"Kayak"> = new Product("Kayak", 275);
 
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 
