@@ -74,3 +74,10 @@ function processArray(data, func) {
 let selectName = (p) => p.name;
 let names = processArray(products, selectName);
 names.forEach(name => console.log(`Name: ${name}`));
+console.log();
+function makeObject(constructor, ...args) {
+    return new constructor(...args);
+}
+let prod = makeObject(Product, "Kayak", 275);
+let city = makeObject(City, "London", 8136000);
+[prod, city].forEach(item => console.log(`Name: ${item.name}`));
