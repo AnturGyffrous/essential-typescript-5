@@ -36,10 +36,13 @@ import { time } from "./methodDecorator.js";
 export let Product = (() => {
     let _instanceExtraInitializers = [];
     let _getDetails_decorators;
+    let _getPrice_decorators;
     return class Product {
         static {
             _getDetails_decorators = [time];
+            _getPrice_decorators = [time];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);
         price;
@@ -49,6 +52,9 @@ export let Product = (() => {
         }
         getDetails() {
             return `Name: ${this.name}, Price $${this.price}`;
+        }
+        getPrice() {
+            return this.price;
         }
     };
 })();
