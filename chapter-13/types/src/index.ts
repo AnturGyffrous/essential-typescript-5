@@ -11,6 +11,13 @@ console.log(`Built-in mapped type: ${p2.name}, ${p2.city}`);
 
 console.log();
 
+type resultType<T extends boolean> = T extends true ? string : number;
+
+let firstVal: resultType<true> = "String Value";
+let secondVal: resultType<false> = 100;
+
+let mismatchCheck: resultType<false> = "String Value";
+
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 
 class Collection<T, K extends keyof T> implements Iterable<T> {
