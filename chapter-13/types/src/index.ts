@@ -75,11 +75,11 @@ function FilterArray<T, U>(data: T[], predicate: (item) => item is U): Filter<T,
     return data.filter(item => !predicate(item)) as any;
 }
 
-let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50)];
+let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50), new City("Paris", 2141000)];
 
-function isProduct(item: any): item is Product {
-    return item instanceof Product;
+function isProductOrCity(item: any): item is Product | City {
+    return item instanceof Product || item instanceof City;
 }
 
-let filteredData: Person[] = FilterArray(dataArray, isProduct);
+let filteredData: Person[] = FilterArray(dataArray, isProductOrCity);
 filteredData.forEach(item => console.log(`Person: ${item.name}`));

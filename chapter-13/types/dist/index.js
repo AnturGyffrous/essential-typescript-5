@@ -43,9 +43,9 @@ console.log();
 function FilterArray(data, predicate) {
     return data.filter(item => !predicate(item));
 }
-let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50)];
-function isProduct(item) {
-    return item instanceof Product;
+let dataArray = [new Product("Kayak", 275), new Person("Bob", "London"), new Product("Lifejacket", 27.50), new City("Paris", 2141000)];
+function isProductOrCity(item) {
+    return item instanceof Product || item instanceof City;
 }
-let filteredData = FilterArray(dataArray, isProduct);
+let filteredData = FilterArray(dataArray, isProductOrCity);
 filteredData.forEach(item => console.log(`Person: ${item.name}`));
