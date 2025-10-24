@@ -68,3 +68,9 @@ function getValue(data, propName) {
 }
 console.log(`Array Value: ${getValue(products, "price")}`);
 console.log(`Single Total: ${getValue(products[0], "price")}`);
+function processArray(data, func) {
+    return data.map(item => func(item));
+}
+let selectName = (p) => p.name;
+let names = processArray(products, selectName);
+names.forEach(name => console.log(`Name: ${name}`));

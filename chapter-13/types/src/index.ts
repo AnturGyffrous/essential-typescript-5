@@ -121,3 +121,13 @@ function getValue<T, P extends targetKeys<T>>(data: T, propName: P): T[P] {
 
 console.log(`Array Value: ${getValue(products, "price")}`);
 console.log(`Single Total: ${getValue(products[0], "price")}`);
+
+type Result<T> = T extends (...args: any) => infer R ? R : never;
+
+function processArray<T, Func extends (T) => any>(data: T[], func: Func): Result<Func>[] {
+    return data.map(item => func(item));
+}
+
+let selectName = (p: Product) => p.name;
+let names: string[] = processArray(products, selectName);
+names.forEach(name => console.log(`Name: ${name}`));
