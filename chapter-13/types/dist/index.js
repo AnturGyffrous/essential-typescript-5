@@ -22,6 +22,10 @@ class Collection {
     get(key) {
         return this.items.get(key);
     }
+    total(propName, format) {
+        let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
+        return format ? `$${totalValue.toFixed()}` : totalValue;
+    }
     get count() {
         return this.items.size;
     }
@@ -33,3 +37,8 @@ let productCollection = new Collection(products, "price");
 console.log(`There are ${productCollection.count} products`);
 let itemByKey = productCollection.get(100);
 console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
+console.log();
+let firstGenericVal = productCollection.total("price", true);
+console.log(`Formatted value: ${firstGenericVal}`);
+let secondGenericVal = productCollection.total("price", false);
+console.log(`Unformatted value: ${secondGenericVal}`);

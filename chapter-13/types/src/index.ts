@@ -39,6 +39,11 @@ class Collection<T, K extends keyof T> implements Iterable<T> {
         return this.items.get(key);
     }
 
+    total<P extends keyof T, U extends boolean>(propName: P, format: U): resultType<U> {
+        let totalValue = [...this.items.values()].reduce((t, item) => t += Number(item[propName]), 0);
+        return format ? `$${totalValue.toFixed()}` : totalValue as any;
+    }
+
     get count(): number {
         return this.items.size;
     }
@@ -53,3 +58,10 @@ console.log(`There are ${productCollection.count} products`);
 
 let itemByKey = productCollection.get(100);
 console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`);
+
+console.log();
+
+let firstGenericVal: string = productCollection.total("price", true);
+console.log(`Formatted value: ${firstGenericVal}`);
+let secondGenericVal: number = productCollection.total("price", false);
+console.log(`Unformatted value: ${secondGenericVal}`);
