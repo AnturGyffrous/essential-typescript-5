@@ -4,9 +4,9 @@ let p2 = { name: "Alice", city: "Paris" };
 console.log(`Custom mapped type: ${p1.name}, ${p1.city}`);
 console.log(`Built-in mapped type: ${p2.name}, ${p2.city}`);
 console.log();
-let firstVal = new City("London", 8136000);
-let secondVal = new Person("Bob", "London");
-let thirdVal = new Product("Kayak", 275);
+let firstVal = new City("Paris", 2141000);
+let secondVal = new Person("Alice", "Paris");
+let thirdVal = new Product("Running Shoes", 100);
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 class Collection {
     propertyName;

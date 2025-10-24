@@ -17,9 +17,9 @@ type references = "London" | "Bob" | "Kayak";
 
 type nestedType<T extends references> = T extends "London" ? City : T extends "Bob" ? Person : Product;
 
-let firstVal: nestedType<"London"> = new City("London", 8136000);
-let secondVal: nestedType<"Bob"> = new Person("Bob", "London");
-let thirdVal: nestedType<"Kayak"> = new Product("Kayak", 275);
+let firstVal: nestedType<"London"> = new City("Paris", 2141000);
+let secondVal: nestedType<"Bob"> = new Person("Alice", "Paris");
+let thirdVal: nestedType<"Kayak"> = new Product("Running Shoes", 100);
 
 let products = [new Product("Running Shoes", 100), new Product("Hat", 25)];
 
