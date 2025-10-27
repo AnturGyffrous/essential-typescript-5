@@ -32,13 +32,13 @@ var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, 
     if (target) Object.defineProperty(target, contextIn.name, descriptor);
     done = true;
 };
-import { time } from "./methodDecorator.js";
+import { message } from "./multiples.js";
 export let City = (() => {
     let _instanceExtraInitializers = [];
     let _getSummary_decorators;
     return class City {
         static {
-            _getSummary_decorators = [time()];
+            _getSummary_decorators = [message("First Decorator"), message("Second Decorator")];
             __esDecorate(this, null, _getSummary_decorators, { kind: "method", name: "getSummary", static: false, private: false, access: { has: obj => "getSummary" in obj, get: obj => obj.getSummary } }, null, _instanceExtraInitializers);
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);
