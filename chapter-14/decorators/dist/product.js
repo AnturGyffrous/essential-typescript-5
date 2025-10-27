@@ -34,35 +34,41 @@ var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, 
 };
 import { time } from "./methodDecorator.js";
 import { serialize } from "./classDecorator.js";
+import { double } from "./fieldDecorator.js";
 export let Product = (() => {
     let _classDecorators = [serialize];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;
     let _instanceExtraInitializers = [];
+    let _taxRate_decorators;
+    let _taxRate_initializers = [];
     let _getDetails_decorators;
     let _getPrice_decorators;
     var Product = class {
         static {
+            _taxRate_decorators = [double];
             _getDetails_decorators = [time];
             _getPrice_decorators = [time];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
+            __esDecorate(null, null, _taxRate_decorators, { kind: "field", name: "taxRate", static: false, private: false, access: { has: obj => "taxRate" in obj, get: obj => obj.taxRate, set: (obj, value) => { obj.taxRate = value; } } }, _taxRate_initializers, _instanceExtraInitializers);
             __esDecorate(null, _classDescriptor = { value: this }, _classDecorators, { kind: "class", name: this.name }, null, _classExtraInitializers);
             Product = _classThis = _classDescriptor.value;
             __runInitializers(_classThis, _classExtraInitializers);
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);
         price;
+        taxRate = __runInitializers(this, _taxRate_initializers, 20);
         constructor(name, price) {
             this.name = name;
             this.price = price;
         }
         getDetails() {
-            return `Name: ${this.name}, Price $${this.price}`;
+            return `Name: ${this.name}, Price $${this.getPrice()}`;
         }
         getPrice() {
-            return this.price;
+            return this.price * (1 + (this.taxRate / 100));
         }
     };
     return Product = _classThis;
