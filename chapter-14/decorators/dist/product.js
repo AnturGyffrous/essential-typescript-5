@@ -48,7 +48,8 @@ export let Product = (() => {
     var Product = class {
         static {
             _getDetails_decorators = [time({
-                    replacement: () => "Hello, Decorator"
+                    // replacement: () => "Hello, Decorator"
+                    time: true
                 })];
             _getPrice_decorators = [time({
                     label: "Product.getPrice",

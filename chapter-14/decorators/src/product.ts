@@ -10,7 +10,8 @@ export class Product {
     constructor(public name: string, public price: number) { }
 
     @time({
-        replacement: () => "Hello, Decorator"
+        // replacement: () => "Hello, Decorator"
+        time: true
     })
     getDetails(): string {
         return `Name: ${this.name}, Price $${this.getPrice()}`;
