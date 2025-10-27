@@ -47,8 +47,13 @@ export let Product = (() => {
     let _tax_initializers = [];
     var Product = class {
         static {
-            _getDetails_decorators = [time("Product.getDetails")];
-            _getPrice_decorators = [time()];
+            _getDetails_decorators = [time({
+                    replacement: () => "Hello, Decorator"
+                })];
+            _getPrice_decorators = [time({
+                    label: "Product.getPrice",
+                    time: true
+                })];
             _tax_decorators = [autolog];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
@@ -59,8 +64,6 @@ export let Product = (() => {
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);
         price;
-        // @double
-        // private taxRate: number = 20;
         constructor(name, price) {
             this.name = name;
             this.price = price;
@@ -72,14 +75,6 @@ export let Product = (() => {
             return this.price * (1 + (this.tax / 100));
         }
         #tax_accessor_storage = __runInitializers(this, _tax_initializers, 20);
-        // @log
-        // get tax() {
-        //     return this.taxRate;
-        // }
-        // @log
-        // set tax(newValue) {
-        //     this.taxRate = newValue;
-        // }
         get tax() { return this.#tax_accessor_storage; }
         set tax(value) { this.#tax_accessor_storage = value; }
     };
