@@ -4,6 +4,7 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "module": "node16",
-        "allowJs": true
+        "allowJs": true,
+        "checkJs": true
     }
 }
