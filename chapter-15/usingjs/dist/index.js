@@ -9,4 +9,4 @@ cart.addProduct(kayak, 1);
 cart.addProduct(hat, 1);
 cart.addProduct(hat, 2);
 sizeFormatter("Cart", cart.itemCount);
-costFormatter("Cart", cart.totalPrice);
+costFormatter("Cart", `${cart.totalPrice}`);
