@@ -33,16 +33,24 @@ var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, 
     done = true;
 };
 import { time } from "./methodDecorator.js";
+import { serialize } from "./classDecorator.js";
 export let Product = (() => {
+    let _classDecorators = [serialize];
+    let _classDescriptor;
+    let _classExtraInitializers = [];
+    let _classThis;
     let _instanceExtraInitializers = [];
     let _getDetails_decorators;
     let _getPrice_decorators;
-    return class Product {
+    var Product = class {
         static {
             _getDetails_decorators = [time];
             _getPrice_decorators = [time];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
+            __esDecorate(null, _classDescriptor = { value: this }, _classDecorators, { kind: "class", name: this.name }, null, _classExtraInitializers);
+            Product = _classThis = _classDescriptor.value;
+            __runInitializers(_classThis, _classExtraInitializers);
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);
         price;
@@ -57,4 +65,5 @@ export let Product = (() => {
             return this.price;
         }
     };
+    return Product = _classThis;
 })();

@@ -1,5 +1,7 @@
 import { time } from "./methodDecorator.js";
+import { serialize } from "./classDecorator.js";
 
+@serialize
 export class Product {
     constructor(public name: string, public price: number) { }
 
