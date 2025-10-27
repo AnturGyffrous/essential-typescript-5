@@ -6,3 +6,5 @@ let product = new Product("Kayak", 275);
 
 console.log(city.getSummary());
 console.log(product.getDetails());
+
+(product as any).serialize();
