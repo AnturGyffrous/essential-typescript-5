@@ -6,3 +6,6 @@ export function serialize(originalClass, ctx) {
         }
     };
 }
+export function isSerializeable(target) {
+    return typeof target.serialize == "function";
+}
