@@ -1,4 +1,7 @@
-export function autolog(accessor: any, ctx: ClassAccessorDecoratorContext) {
+export function autolog<This, ValueType extends number>(
+    accessor: ClassAccessorDecoratorTarget<This, ValueType>,
+    ctx: ClassAccessorDecoratorContext<This, ValueType>): ClassAccessorDecoratorResult<This, ValueType> {
+
     const name = String(ctx.name);
 
     return {
