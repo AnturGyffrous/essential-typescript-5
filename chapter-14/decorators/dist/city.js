@@ -38,7 +38,7 @@ export let City = (() => {
     let _getSummary_decorators;
     return class City {
         static {
-            _getSummary_decorators = [time];
+            _getSummary_decorators = [time()];
             __esDecorate(this, null, _getSummary_decorators, { kind: "method", name: "getSummary", static: false, private: false, access: { has: obj => "getSummary" in obj, get: obj => obj.getSummary } }, null, _instanceExtraInitializers);
         }
         name = (__runInitializers(this, _instanceExtraInitializers), void 0);

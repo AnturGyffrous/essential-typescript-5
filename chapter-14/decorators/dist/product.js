@@ -47,8 +47,8 @@ export let Product = (() => {
     let _tax_initializers = [];
     var Product = class {
         static {
-            _getDetails_decorators = [time];
-            _getPrice_decorators = [time];
+            _getDetails_decorators = [time("Product.getDetails")];
+            _getPrice_decorators = [time()];
             _tax_decorators = [autolog];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
