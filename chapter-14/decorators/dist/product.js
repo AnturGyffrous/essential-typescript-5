@@ -35,6 +35,7 @@ var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, 
 import { time } from "./methodDecorator.js";
 import { serialize } from "./classDecorator.js";
 import { double } from "./fieldDecorator.js";
+import { log } from "./accessorDecorator.js";
 export let Product = (() => {
     let _classDecorators = [serialize];
     let _classDescriptor;
@@ -45,13 +46,19 @@ export let Product = (() => {
     let _taxRate_initializers = [];
     let _getDetails_decorators;
     let _getPrice_decorators;
+    let _get_tax_decorators;
+    let _set_tax_decorators;
     var Product = class {
         static {
             _taxRate_decorators = [double];
             _getDetails_decorators = [time];
             _getPrice_decorators = [time];
+            _get_tax_decorators = [log];
+            _set_tax_decorators = [log];
             __esDecorate(this, null, _getDetails_decorators, { kind: "method", name: "getDetails", static: false, private: false, access: { has: obj => "getDetails" in obj, get: obj => obj.getDetails } }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _getPrice_decorators, { kind: "method", name: "getPrice", static: false, private: false, access: { has: obj => "getPrice" in obj, get: obj => obj.getPrice } }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _get_tax_decorators, { kind: "getter", name: "tax", static: false, private: false, access: { has: obj => "tax" in obj, get: obj => obj.tax } }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _set_tax_decorators, { kind: "setter", name: "tax", static: false, private: false, access: { has: obj => "tax" in obj, set: (obj, value) => { obj.tax = value; } } }, null, _instanceExtraInitializers);
             __esDecorate(null, null, _taxRate_decorators, { kind: "field", name: "taxRate", static: false, private: false, access: { has: obj => "taxRate" in obj, get: obj => obj.taxRate, set: (obj, value) => { obj.taxRate = value; } } }, _taxRate_initializers, _instanceExtraInitializers);
             __esDecorate(null, _classDescriptor = { value: this }, _classDecorators, { kind: "class", name: this.name }, null, _classExtraInitializers);
             Product = _classThis = _classDescriptor.value;
@@ -69,6 +76,12 @@ export let Product = (() => {
         }
         getPrice() {
             return this.price * (1 + (this.taxRate / 100));
+        }
+        get tax() {
+            return this.taxRate;
+        }
+        set tax(newValue) {
+            this.taxRate = newValue;
         }
     };
     return Product = _classThis;
