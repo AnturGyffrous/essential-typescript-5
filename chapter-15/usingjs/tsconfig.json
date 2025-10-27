@@ -3,6 +3,7 @@
         "target": "es2022",
         "outDir": "./dist",
         "rootDir": "./src",
-        "module": "node16"
+        "module": "node16",
+        "allowJs": true
     }
 }
