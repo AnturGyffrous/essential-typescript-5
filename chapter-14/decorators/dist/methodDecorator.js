@@ -1,5 +1,7 @@
 export function time(config) {
     return function (method, ctx) {
+        let start;
+        ctx.addInitializer(() => start = performance.now());
         const methodName = config?.label ?? String(ctx.name);
         return function (...args) {
             const start = performance.now();

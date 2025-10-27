@@ -9,6 +9,8 @@ export function time(config?: Config) {
         method: (This, Args) => Result,
         ctx: ClassMethodDecoratorContext<This, (This, Args) => Result>) {
 
+        let start: number;
+        ctx.addInitializer(() => start = performance.now());
         const methodName = config?.label ?? String(ctx.name);
 
         return function (this: This, ...args: Args) {
