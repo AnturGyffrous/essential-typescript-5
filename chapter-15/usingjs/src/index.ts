@@ -1,6 +1,6 @@
 import { SportsProduct, SPORT } from "./product.js";
 import { Cart } from "./cart.js";
-import { sizeFormatter, costFormatter, writeMessage } from "./formatters.js";
+import { sizeFormatter, costFormatter, writeMessage } from "./tsFormatters.js";
 import debug from "debug";
 import chalk from "chalk";
 
