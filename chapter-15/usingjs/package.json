@@ -16,6 +16,7 @@
   },
   "type": "module",
   "dependencies": {
+    "chalk": "^4.1.2",
     "debug": "^4.3.4"
   }
 }
