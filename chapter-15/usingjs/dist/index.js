@@ -12,6 +12,6 @@ cart.addProduct(hat, 2);
 sizeFormatter("Cart", cart.itemCount);
 costFormatter("Cart", `${cart.totalPrice}`);
 writeMessage("Test message");
-let db = debug("Example App", true);
+let db = debug("Example App");
 db.enabled = true;
 db("Message: %s", "Test message");
