@@ -6,13 +6,13 @@
         "module": "node16",
         "allowJs": true,
         "checkJs": true,
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "types/*.d.cts",
-                "types/*.d.mts",
-                "types/*.d.ts"
-            ]
-        }
+        // "baseUrl": ".",
+        // "paths": {
+        //     "*": [
+        //         "types/*.d.cts",
+        //         "types/*.d.mts",
+        //         "types/*.d.ts"
+        //     ]
+        // }
     }
 }
