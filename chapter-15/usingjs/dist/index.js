@@ -17,4 +17,4 @@ let db = debug("Example App");
 db.enabled = true;
 db("Message: %s", "Test message");
 console.log(chalk.greenBright("Formatted message"));
-console.log(chalk.notAColor("Formatted message"));
+// console.log(chalk.notAColor("Formatted message"));
