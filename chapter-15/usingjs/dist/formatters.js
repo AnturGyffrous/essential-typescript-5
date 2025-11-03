@@ -15,6 +15,6 @@ export function costFormatter(thing, cost) {
         writeMessage(`The ${thing} costs $${cost}`);
     }
 }
-function writeMessage(message) {
+export function writeMessage(message) {
     console.log(message);
 }
