@@ -4,8 +4,8 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "module": "node16",
-        "allowJs": true,
-        "checkJs": true,
+        // "allowJs": true,
+        // "checkJs": true,
         // "baseUrl": ".",
         // "paths": {
         //     "*": [
@@ -14,5 +14,6 @@
         //         "types/*.d.ts"
         //     ]
         // }
+        "declaration": true
     }
 }
