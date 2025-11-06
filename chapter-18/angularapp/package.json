@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "json": "json-server data.js -p 4600",
+    "serve": "ng serve",
+    "start": "npm-run-all -p serve json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
