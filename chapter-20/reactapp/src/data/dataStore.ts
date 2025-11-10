@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { reducer as selectionsReducer, addToOrder } from "./selectionSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { productsApi, useGetProductsQuery } from "./storeApis";
 
 export const dataStore = configureStore({
     reducer: {
-        "selections": selectionsReducer
-    }
+        "selections": selectionsReducer, [productsApi.reducerPath]: productsApi.reducer
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(productsApi.middleware)
 });
 
 export type AppDispatch = typeof dataStore.dispatch;
@@ -16,4 +18,8 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export const reducers = {
     addToOrder
+}
+
+export const queries = {
+    useGetProductsQuery
 }
