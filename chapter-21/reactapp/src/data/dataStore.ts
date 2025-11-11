@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer as selectionsReducer, addToOrder } from "./selectionSlice";
+import { reducer as selectionsReducer, addToOrder, resetSelections } from "./selectionSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { ordersApi, productsApi, useGetProductsQuery, useStoreOrderMutation } from "./storeApis";
 
@@ -23,7 +23,8 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export const reducers = {
     addToOrder,
-    useStoreOrderMutation
+    useStoreOrderMutation,
+    resetSelections
 }
 
 export const queries = {
