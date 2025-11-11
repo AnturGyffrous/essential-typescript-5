@@ -7,9 +7,12 @@ const productSelectionSlice = createSlice({
     reducers: {
         addToOrder(selections: ProductSelection[], action: PayloadAction<[Product, number]>) {
             ProductSelectionMutations.addProduct(selections, action.payload[0], action.payload[1])
+        },
+        resetSelections(selections: ProductSelection[]) {
+            selections.length = 0;
         }
     }
 });
 
 export const reducer = productSelectionSlice.reducer;
-export const { addToOrder } = productSelectionSlice.actions
+export const { addToOrder, resetSelections } = productSelectionSlice.actions
