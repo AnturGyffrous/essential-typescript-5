@@ -26,7 +26,7 @@ export const App: FunctionComponent = () => {
   const submitCallback = () => {
     storeOrder(selections).unwrap().then(id => {
       dispatch(resetSelections());
-      navigate('/summary/${id}');
+      navigate(`/summary/${id}`);
     });
   }
 
