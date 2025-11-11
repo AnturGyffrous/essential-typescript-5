@@ -39,7 +39,7 @@ export const App: FunctionComponent = () => {
           addToOrder={addToOrder} />
       } />
       <Route path="/order" element={
-        <OrderDetails selections={selections} submitCallback={() => submitCallback} />
+        <OrderDetails selections={selections} submitCallback={() => submitCallback()} />
       } />
       <Route path="/summary/:id" element={<Summary />} />
       <Route path="/" element={
